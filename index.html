@@ -3,15 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Saffron Grove — Fine Dining Experience</title>
+<title>Saffron Grove — Fine Dining Experience Pakistan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" crossorigin="anonymous">
-<style>
-/* Icon fallback system - pure CSS symbols if FA fails */
-.ico::before { font-style: normal; }
-</style>
 <style>
   :root {
     --green: #1a3a2a;
@@ -58,7 +53,7 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   .topbar-logo { display: flex; align-items: center; gap: 10px; }
-  .topbar-logo .leaf { font-size: 20px; color: var(--gold); }
+  .topbar-logo i { color: var(--gold); font-size: 20px; }
   .topbar-logo span { font-family: var(--font-display); font-size: 22px; color: var(--white); font-weight: 600; letter-spacing: .5px; }
   .topbar-icons { display: flex; gap: 16px; }
   .topbar-icons button { background: none; border: none; color: var(--gold-light); font-size: 18px; cursor: pointer; position: relative; }
@@ -135,6 +130,7 @@
     border: 1.5px solid transparent;
   }
   .quick-card:hover { transform: translateY(-3px); border-color: var(--gold-pale); }
+  .quick-card i { font-size: 24px; color: var(--gold); display: block; margin-bottom: 6px; }
   .quick-card span { font-size: 11px; font-weight: 500; color: var(--text-mid); letter-spacing: .3px; }
 
   .section-title {
@@ -153,7 +149,7 @@
   .special-card:hover { transform: scale(1.02); }
   .special-img {
     height: 120px; display: flex; align-items: center; justify-content: center;
-    font-size: 52px;
+    font-size: 52px; background: #f9f7ef;
   }
   .special-info { padding: 12px; }
   .special-info h4 { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--green); }
@@ -173,7 +169,14 @@
   }
   .promo-banner .promo-text h3 { font-family: var(--font-display); font-size: 20px; color: var(--gold-light); font-weight: 500; }
   .promo-banner .promo-text p { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 4px; }
-  .promo-banner .promo-icon { font-size: 36px; opacity: .85; }
+  .promo-banner .promo-icon { font-size: 36px; opacity: .85; color: var(--gold-light); }
+
+  .info-banner {
+    margin: 0 20px 16px; background: var(--gold-pale); border-radius: var(--radius-sm);
+    padding: 14px 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .info-banner i { color: var(--gold); font-size: 16px; flex-shrink: 0; }
+  .info-banner span { font-size: 13px; color: var(--green); font-weight: 500; }
 
   /* ── MENU ── */
   .filter-bar {
@@ -197,7 +200,7 @@
     margin-bottom: 12px; box-shadow: var(--shadow); cursor: pointer; transition: all .2s;
   }
   .menu-item:hover { transform: translateX(3px); box-shadow: var(--shadow-deep); }
-  .menu-emoji { font-size: 42px; flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 10px; }
+  .menu-icon { font-size: 24px; flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 10px; color: var(--gold); }
   .menu-info { flex: 1; }
   .menu-info h4 { font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--green); }
   .menu-info p { font-size: 12px; color: var(--text-muted); margin: 3px 0 8px; line-height: 1.4; }
@@ -241,7 +244,7 @@
     display: flex; align-items: center; gap: 12px;
     padding: 12px 0; border-bottom: 1px solid #f5f0e8;
   }
-  .cart-row-emoji { font-size: 28px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 8px; flex-shrink: 0; }
+  .cart-row-icon { font-size: 20px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 8px; flex-shrink: 0; color: var(--gold); }
   .cart-row-info { flex: 1; }
   .cart-row-info h5 { font-size: 14px; font-weight: 600; color: var(--text-dark); }
   .cart-row-info p { font-size: 12px; color: var(--gold); font-weight: 600; margin-top: 2px; }
@@ -271,6 +274,13 @@
     font-family: var(--font-body); font-size: 14px; color: var(--text-dark);
     background: var(--cream); outline: none; transition: border .2s;
     -webkit-appearance: none; appearance: none;
+  }
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23c9a84c'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
   }
   .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -422,12 +432,6 @@
   .pad20 { padding: 0 20px 20px; }
   .mt-auto { margin-top: auto; }
   .txt-center { text-align: center; }
-  .info-banner {
-    margin: 0 20px 16px; background: var(--gold-pale); border-radius: var(--radius-sm);
-    padding: 14px 16px; display: flex; align-items: center; gap: 10px;
-  }
-  .info-banner i { color: var(--gold); font-size: 16px; flex-shrink: 0; }
-  .info-banner span { font-size: 13px; color: var(--green); font-weight: 500; }
 
   .floating-cart {
     position: fixed; bottom: calc(var(--nav-h) + 12px); right: 16px; z-index: 150;
@@ -450,12 +454,12 @@
 <body>
 
 <!-- TOAST -->
-<div class="toast" id="toast"><span>✅</span><span id="toast-msg">Done!</span></div>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
 
 <!-- FLOATING CART -->
 <button class="floating-cart" id="floating-cart" onclick="openCart()">
-  <span style="font-size:18px">🛍️</span>
-  <span id="float-cart-label">View Cart · $0</span>
+  <i class="fa-solid fa-bag-shopping" style="font-size:18px"></i>
+  <span id="float-cart-label">View Cart · Rs. 0</span>
 </button>
 
 <!-- OVERLAY -->
@@ -469,7 +473,7 @@
   <div class="cart-summary" id="cart-summary"></div>
   <div class="pad20">
     <button class="btn-full gold" onclick="placeOrder()" id="place-order-btn" style="display:none">
-      ✅ Place Order
+      <i class="fa-solid fa-check"></i> Place Order
     </button>
   </div>
 </div>
@@ -478,11 +482,11 @@
 <div class="screen active" id="screen-home">
   <div class="topbar">
     <div class="topbar-logo">
-      <span class="leaf">🌿</span>
+      <i class="fa-solid fa-leaf"></i>
       <span>Saffron Grove</span>
     </div>
     <div class="topbar-icons">
-      <button onclick="openCart()">🛍️<span class="cart-badge" id="cart-badge" style="display:none">0</span></button>
+      <button onclick="openCart()"><i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cart-badge" style="display:none">0</span></button>
     </div>
   </div>
 
@@ -491,16 +495,16 @@
     <h1 class="hero-title">Where Every<br>Meal is a<br><em>Masterpiece</em></h1>
     <p class="hero-sub">Exquisite flavours crafted with the finest ingredients, served with warmth.</p>
     <div class="hero-actions">
-      <button class="btn-gold" onclick="goTo('menu')">🍽️ View Menu</button>
+      <button class="btn-gold" onclick="goTo('menu')"><i class="fa-solid fa-utensils"></i> View Menu</button>
       <button class="btn-outline" onclick="goTo('booking')">Reserve Table</button>
     </div>
   </div>
 
   <div class="quick-grid">
-    <div class="quick-card" onclick="goTo('menu')"><span style="font-size:24px;display:block;margin-bottom:6px">🍽️</span><span>Menu</span></div>
-    <div class="quick-card" onclick="goTo('booking')"><span style="font-size:24px;display:block;margin-bottom:6px">📅</span><span>Reserve</span></div>
-    <div class="quick-card" onclick="goTo('deals')"><span style="font-size:24px;display:block;margin-bottom:6px">🏷️</span><span>Deals</span></div>
-    <div class="quick-card" onclick="goTo('lead')"><span style="font-size:24px;display:block;margin-bottom:6px">🎁</span><span>Offer</span></div>
+    <div class="quick-card" onclick="goTo('menu')"><i class="fa-solid fa-utensils"></i><span>Menu</span></div>
+    <div class="quick-card" onclick="goTo('booking')"><i class="fa-regular fa-calendar-days"></i><span>Reserve</span></div>
+    <div class="quick-card" onclick="goTo('deals')"><i class="fa-solid fa-tag"></i><span>Deals</span></div>
+    <div class="quick-card" onclick="goTo('lead')"><i class="fa-solid fa-gift"></i><span>Offer</span></div>
   </div>
 
   <div class="section-title"><small>Today's Highlights</small>Chef's Specials</div>
@@ -509,14 +513,14 @@
   <div class="promo-banner">
     <div class="promo-text">
       <h3>20% Off Today!</h3>
-      <p>Use code <strong style="color:var(--gold-light)">SAFFRON20</strong> on dine-in orders above $40</p>
+      <p>Use code <strong style="color:var(--gold-light)">SAFFRON20</strong> on dine-in orders above Rs. 4,000</p>
     </div>
-    <div class="promo-icon">🎉</div>
+    <div class="promo-icon"><i class="fa-solid fa-percent"></i></div>
   </div>
 
   <div class="info-banner">
-    <span style="font-size:16px;flex-shrink:0">📍</span>
-    <span>12 Elgin Avenue, London · Open 12pm–11pm Daily</span>
+    <i class="fa-solid fa-location-dot"></i>
+    <span>12 MM Alam Road, Lahore · Open 12pm–11pm Daily</span>
   </div>
 </div>
 
@@ -524,10 +528,10 @@
 <div class="screen" id="screen-menu">
   <div class="topbar">
     <div class="topbar-logo">
-      <span class="leaf">🌿</span><span>Menu</span>
+      <i class="fa-solid fa-leaf"></i><span>Menu</span>
     </div>
     <div class="topbar-icons">
-      <button onclick="openCart()">🛍️<span class="cart-badge" id="cart-badge2" style="display:none">0</span></button>
+      <button onclick="openCart()"><i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cart-badge2" style="display:none">0</span></button>
     </div>
   </div>
   <div class="filter-bar" id="filter-bar"></div>
@@ -536,7 +540,7 @@
 
 <!-- ══════════════════════════════════════════ BOOKING SCREEN ══════ -->
 <div class="screen" id="screen-booking">
-  <div class="topbar"><div class="topbar-logo"><span class="leaf">🌿</span><span>Reserve a Table</span></div></div>
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Reserve a Table</span></div></div>
   <div class="booking-hero">
     <h2>Book Your Table</h2>
     <p>Secure your perfect dining experience in seconds</p>
@@ -545,11 +549,11 @@
     <div class="form-card">
       <div class="form-group">
         <label>Full Name</label>
-        <input type="text" id="b-name" placeholder="e.g. Emma Johnson">
+        <input type="text" id="b-name" placeholder="e.g. Ahmed Khan">
       </div>
       <div class="form-group">
         <label>Phone Number</label>
-        <input type="tel" id="b-phone" placeholder="+44 7700 000000">
+        <input type="tel" id="b-phone" placeholder="+92 300 0000000">
       </div>
       <div class="form-row">
         <div class="form-group">
@@ -558,19 +562,38 @@
         </div>
         <div class="form-group">
           <label>Guests</label>
-          <div class="guest-btns" id="guest-btns"></div>
+          <select id="b-guests" style="width:100%;padding:13px 14px;border:1.5px solid #e8e2d8;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14px;color:var(--text-dark);background:var(--cream);cursor:pointer;">
+            <option value="">Select guests</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+            <option value="6">6+ People</option>
+          </select>
         </div>
       </div>
       <div class="form-group">
         <label>Select Time Slot</label>
-        <div class="slots-grid" id="slots-grid"></div>
+        <select id="b-time" style="width:100%;padding:13px 14px;border:1.5px solid #e8e2d8;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14px;color:var(--text-dark);background:var(--cream);cursor:pointer;">
+          <option value="">Choose a time</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="12:30 PM">12:30 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="1:30 PM">1:30 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+          <option value="7:30 PM" disabled>7:30 PM (Full)</option>
+          <option value="8:00 PM" disabled>8:00 PM (Full)</option>
+          <option value="9:00 PM">9:00 PM</option>
+          <option value="9:30 PM">9:30 PM</option>
+        </select>
       </div>
       <div class="form-group">
         <label>Special Requests (Optional)</label>
         <input type="text" id="b-notes" placeholder="Allergies, occasion, seating preference…">
       </div>
       <button class="btn-full" onclick="submitBooking()">
-        ✅ Confirm Booking
+        <i class="fa-solid fa-check"></i> Confirm Booking
       </button>
     </div>
   </div>
@@ -578,20 +601,20 @@
 
 <!-- ══════════════════════════════════════════ DEALS SCREEN ══════════ -->
 <div class="screen" id="screen-deals">
-  <div class="topbar"><div class="topbar-logo"><span class="leaf">🌿</span><span>Deals & Offers</span></div></div>
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Deals & Offers</span></div></div>
   <div class="deals-hero">
     <h2>Today's Deals</h2>
     <p>Exclusive offers for our valued guests — tap to copy & save!</p>
   </div>
   <div class="deals-list" id="deals-list"></div>
   <div class="pad20">
-    <button class="btn-full gold" onclick="goTo('lead')">🎁 Unlock Special Discount</button>
+    <button class="btn-full gold" onclick="goTo('lead')"><i class="fa-solid fa-gift"></i> Unlock Special Discount</button>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════ FAQ SCREEN ══════════ -->
 <div class="screen" id="screen-faq">
-  <div class="topbar"><div class="topbar-logo"><span class="leaf">🌿</span><span>Help & FAQ</span></div></div>
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Help & FAQ</span></div></div>
   <div class="faq-hero">
     <h2>Got Questions?</h2>
     <p>We've got answers. Tap any question to expand.</p>
@@ -601,7 +624,7 @@
 
 <!-- ══════════════════════════════════════════ LEAD CAPTURE ══════════ -->
 <div class="screen" id="screen-lead">
-  <div class="topbar"><div class="topbar-logo"><span class="leaf">🌿</span><span>Exclusive Offer</span></div></div>
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Exclusive Offer</span></div></div>
   <div class="lead-hero">
     <h2>Unlock Your <span class="gold-txt">25% Off</span><br>Welcome Discount</h2>
     <p>Fill in your details and receive an exclusive promo code instantly — just for you.</p>
@@ -617,26 +640,34 @@
     </div>
     <div class="form-group">
       <label>Phone / WhatsApp</label>
-      <input type="tel" id="l-phone" placeholder="+44 7700 000000">
+      <input type="tel" id="l-phone" placeholder="+92 300 0000000">
     </div>
     <div class="form-group">
       <label>Dining Interest</label>
-      <div class="interest-grid" id="interest-grid"></div>
+      <select id="l-interest" style="width:100%;padding:13px 14px;border:1.5px solid #e8e2d8;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14px;color:var(--text-dark);background:var(--cream);cursor:pointer;">
+        <option value="">Select interest</option>
+        <option value="Fine Dining">Fine Dining</option>
+        <option value="Date Night">Date Night</option>
+        <option value="Family Outing">Family Outing</option>
+        <option value="Business Lunch">Business Lunch</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Special Occasion">Special Occasion</option>
+      </select>
     </div>
     <button class="btn-full gold" onclick="submitLead()" style="margin-top:16px">
-      🔓 Claim My 25% Discount
+      <i class="fa-solid fa-unlock"></i> Claim My 25% Discount
     </button>
     <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px">
-      🔒 Your details are 100% private and never shared.
+      <i class="fa-solid fa-lock"></i> Your details are 100% private and never shared.
     </p>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════ CONFIRMATION SCREEN ══════════ -->
 <div class="screen" id="screen-confirm">
-  <div class="topbar"><div class="topbar-logo"><span class="leaf">🌿</span><span>Saffron Grove</span></div></div>
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Saffron Grove</span></div></div>
   <div class="confirm-screen">
-    <div class="confirm-icon" id="confirm-icon">✅</div>
+    <div class="confirm-icon" id="confirm-icon"><i class="fa-solid fa-check"></i></div>
     <h2 id="confirm-title">Booking Confirmed!</h2>
     <p id="confirm-subtitle">Your table has been reserved. We'll send a reminder before your visit.</p>
     <div class="ref-box">
@@ -645,85 +676,78 @@
       <div class="ref-sub" id="confirm-ref-sub">Screenshot this for check-in</div>
     </div>
     <div class="confirm-details" id="confirm-details"></div>
-    <button class="btn-full" onclick="goHome()" style="margin-top:8px">🏠 Back to Home</button>
+    <button class="btn-full" onclick="goHome()"><i class="fa-solid fa-house"></i> Back to Home</button>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════ BOTTOM NAV ══════════ -->
 <nav class="bottom-nav">
-  <button class="nav-btn active" id="nav-home" onclick="goTo('home')"><span style="font-size:20px">🏠</span>Home</button>
-  <button class="nav-btn" id="nav-menu" onclick="goTo('menu')"><span style="font-size:20px">🍽️</span>Menu</button>
-  <button class="nav-btn" id="nav-booking" onclick="goTo('booking')"><span style="font-size:20px">📅</span>Reserve</button>
-  <button class="nav-btn" id="nav-deals" onclick="goTo('deals')"><span style="font-size:20px">🏷️</span>Deals</button>
-  <button class="nav-btn" id="nav-faq" onclick="goTo('faq')"><span style="font-size:20px">❓</span>Help</button>
+  <button class="nav-btn active" id="nav-home" onclick="goTo('home')"><i class="fa-solid fa-house"></i>Home</button>
+  <button class="nav-btn" id="nav-menu" onclick="goTo('menu')"><i class="fa-solid fa-utensils"></i>Menu</button>
+  <button class="nav-btn" id="nav-booking" onclick="goTo('booking')"><i class="fa-regular fa-calendar-days"></i>Reserve</button>
+  <button class="nav-btn" id="nav-deals" onclick="goTo('deals')"><i class="fa-solid fa-tag"></i>Deals</button>
+  <button class="nav-btn" id="nav-faq" onclick="goTo('faq')"><i class="fa-solid fa-circle-question"></i>Help</button>
 </nav>
 
 <script>
 // ═══════════════════════════════════════════════════════
-//  DATA
+//  DATA (Pakistan - Prices in PKR)
 // ═══════════════════════════════════════════════════════
 const MENU = [
   // Starters
-  { id:1, cat:'Starters', name:'Saffron Arancini', desc:'Crispy risotto balls with mozzarella & truffle oil', price:12, emoji:'🧆', tags:['Veg','Chef Pick'] },
-  { id:2, cat:'Starters', name:'Burrata & Heritage Tomato', desc:'Creamy burrata, heirloom tomatoes, basil oil', price:14, emoji:'🥗', tags:['Veg','GF'] },
-  { id:3, cat:'Starters', name:'Spiced Lamb Kofta', desc:'Moroccan-spiced lamb with mint yoghurt', price:15, emoji:'🍢', tags:['Spicy'] },
-  { id:4, cat:'Starters', name:'Smoked Salmon Blinis', desc:'Scottish smoked salmon, crème fraîche, capers', price:16, emoji:'🐟', tags:['GF'] },
+  { id:1, cat:'Starters', name:'Saffron Arancini', desc:'Crispy risotto balls with mozzarella & truffle oil', price:1200, icon:'fa-solid fa-cheese', tags:['Veg','Chef Pick'] },
+  { id:2, cat:'Starters', name:'Burrata & Heritage Tomato', desc:'Creamy burrata, heirloom tomatoes, basil oil', price:1400, icon:'fa-solid fa-leaf', tags:['Veg','GF'] },
+  { id:3, cat:'Starters', name:'Spiced Lamb Kofta', desc:'Moroccan-spiced lamb with mint yoghurt', price:1500, icon:'fa-solid fa-drumstick-bite', tags:['Spicy'] },
+  { id:4, cat:'Starters', name:'Smoked Salmon Blinis', desc:'Scottish smoked salmon, crème fraîche, capers', price:1600, icon:'fa-solid fa-fish', tags:['GF'] },
   // Mains
-  { id:5, cat:'Mains', name:'Saffron Risotto', desc:'Carnaroli rice, Parmesan, wild mushrooms & saffron butter', price:24, emoji:'🍚', tags:['Veg','Signature'] },
-  { id:6, cat:'Mains', name:'Pan-Seared Sea Bass', desc:'Lemon herb crust, sautéed spinach, beurre blanc', price:28, emoji:'🐠', tags:['GF','Chef Pick'] },
-  { id:7, cat:'Mains', name:'Slow-Braised Lamb Shank', desc:'12-hour braised lamb, root vegetable purée, jus', price:32, emoji:'🍖', tags:['GF'] },
-  { id:8, cat:'Mains', name:'Wild Mushroom Linguine', desc:'Forest mushrooms, truffle oil, Parmesan, fresh herbs', price:22, emoji:'🍝', tags:['Veg'] },
+  { id:5, cat:'Mains', name:'Saffron Risotto', desc:'Carnaroli rice, Parmesan, wild mushrooms & saffron butter', price:2400, icon:'fa-solid fa-wheat-awn', tags:['Veg','Signature'] },
+  { id:6, cat:'Mains', name:'Pan-Seared Sea Bass', desc:'Lemon herb crust, sautéed spinach, beurre blanc', price:2800, icon:'fa-solid fa-fish-fins', tags:['GF','Chef Pick'] },
+  { id:7, cat:'Mains', name:'Slow-Braised Lamb Shank', desc:'12-hour braised lamb, root vegetable purée, jus', price:3200, icon:'fa-solid fa-bowl-food', tags:['GF'] },
+  { id:8, cat:'Mains', name:'Wild Mushroom Linguine', desc:'Forest mushrooms, truffle oil, Parmesan, fresh herbs', price:2200, icon:'fa-solid fa-utensils', tags:['Veg'] },
   // Grill
-  { id:9, cat:'Grill', name:'Prime Ribeye 300g', desc:'28-day dry-aged, served with chimichurri & fries', price:45, emoji:'🥩', tags:['Chef Pick','GF'] },
-  { id:10, cat:'Grill', name:'Grilled Lobster Half', desc:'Garlic herb butter, seasonal greens', price:52, emoji:'🦞', tags:['GF','Premium'] },
-  { id:11, cat:'Grill', name:'Chicken Supreme', desc:'Free-range corn-fed, wild garlic butter, asparagus', price:26, emoji:'🍗', tags:['GF'] },
-  { id:12, cat:'Grill', name:'Halloumi Steak', desc:'Grilled halloumi, charred veg, pomegranate glaze', price:20, emoji:'🧀', tags:['Veg','GF'] },
+  { id:9, cat:'Grill', name:'Prime Ribeye 300g', desc:'28-day dry-aged, served with chimichurri & fries', price:4500, icon:'fa-solid fa-drumstick-bite', tags:['Chef Pick'] },
+  { id:10, cat:'Grill', name:'Grilled Lobster Half', desc:'Garlic herb butter, seasonal greens', price:5200, icon:'fa-solid fa-shrimp', tags:['Premium'] },
+  { id:11, cat:'Grill', name:'Chicken Supreme', desc:'Free-range corn-fed, wild garlic butter, asparagus', price:2600, icon:'fa-solid fa-drumstick-bite', tags:['GF'] },
+  { id:12, cat:'Grill', name:'Halloumi Steak', desc:'Grilled halloumi, charred veg, pomegranate glaze', price:2000, icon:'fa-solid fa-cheese', tags:['Veg','GF'] },
   // Desserts
-  { id:13, cat:'Desserts', name:'Baklava Cheesecake', desc:'Rose water, pistachio crumb, honey drizzle', price:10, emoji:'🍰', tags:['Veg','Signature'] },
-  { id:14, cat:'Desserts', name:'Warm Chocolate Fondant', desc:'Valrhona dark chocolate, vanilla bean ice cream', price:11, emoji:'🍫', tags:['Veg'] },
-  { id:15, cat:'Desserts', name:'Saffron Panna Cotta', desc:'Delicate saffron & cardamom, mango coulis', price:9, emoji:'🍮', tags:['Veg','GF'] },
+  { id:13, cat:'Desserts', name:'Baklava Cheesecake', desc:'Rose water, pistachio crumb, honey drizzle', price:1000, icon:'fa-solid fa-cake-candles', tags:['Veg','Signature'] },
+  { id:14, cat:'Desserts', name:'Warm Chocolate Fondant', desc:'Valrhona dark chocolate, vanilla bean ice cream', price:1100, icon:'fa-solid fa-cookie-bite', tags:['Veg'] },
+  { id:15, cat:'Desserts', name:'Saffron Panna Cotta', desc:'Delicate saffron & cardamom, mango coulis', price:900, icon:'fa-solid fa-ice-cream', tags:['Veg','GF'] },
   // Beverages
-  { id:16, cat:'Beverages', name:'Rose Lemonade', desc:'Fresh rose syrup, muddled mint, sparkling water', price:6, emoji:'🌹', tags:['NA'] },
-  { id:17, cat:'Beverages', name:'Mango Lassi', desc:'Fresh mango, yoghurt, cardamom', price:6, emoji:'🥭', tags:['Veg'] },
-  { id:18, cat:'Beverages', name:'Specialty Coffee', desc:'Single-origin espresso, steamed oat milk', price:5, emoji:'☕', tags:['Veg'] },
+  { id:16, cat:'Beverages', name:'Rose Lemonade', desc:'Fresh rose syrup, muddled mint, sparkling water', price:600, icon:'fa-solid fa-wine-glass', tags:['NA'] },
+  { id:17, cat:'Beverages', name:'Mango Lassi', desc:'Fresh mango, yoghurt, cardamom', price:600, icon:'fa-solid fa-blender', tags:['Veg'] },
+  { id:18, cat:'Beverages', name:'Specialty Coffee', desc:'Single-origin espresso, steamed oat milk', price:500, icon:'fa-solid fa-mug-hot', tags:['Veg'] },
 ];
 
 const SPECIALS = [
-  { name:'Saffron Risotto', desc:'Chef\'s signature', price:24, old:30, emoji:'🍚', badge:'20% OFF' },
-  { name:'Prime Ribeye', desc:'Dry-aged perfection', price:45, old:55, emoji:'🥩', badge:'LIMITED' },
-  { name:'Baklava Cheesecake', desc:'Dessert of the week', price:10, old:13, emoji:'🍰', badge:'SPECIAL' },
+  { name:'Saffron Risotto', desc:'Chef\'s signature', price:2400, old:3000, icon:'fa-solid fa-wheat-awn', badge:'20% OFF' },
+  { name:'Prime Ribeye', desc:'Dry-aged perfection', price:4500, old:5500, icon:'fa-solid fa-drumstick-bite', badge:'LIMITED' },
+  { name:'Baklava Cheesecake', desc:'Dessert of the week', price:1000, old:1300, icon:'fa-solid fa-cake-candles', badge:'SPECIAL' },
 ];
 
 const DEALS = [
-  { title:'Welcome Feast', desc:'Get 20% off your entire bill on dine-in orders over $40. Valid Sunday–Thursday.', code:'SAFFRON20', badge:'DINE-IN', exp:'Expires 31 May 2025' },
+  { title:'Welcome Feast', desc:'Get 20% off your entire bill on dine-in orders over Rs. 4,000. Valid Sunday–Thursday.', code:'SAFFRON20', badge:'DINE-IN', exp:'Expires 31 May 2025' },
   { title:'Family Table', desc:'4+ guests? Enjoy a complimentary starter platter — just mention this offer when booking.', code:'FAMILY4', badge:'GROUP', exp:'Valid weekdays' },
   { title:'Date Night', desc:'Book a table for 2 after 7 PM and receive complimentary dessert for both guests.', code:'DATENIGHT', badge:'EVENING', exp:'Fri & Sat only' },
-  { title:'Lunch Special', desc:'Two-course lunch for just $22 per person — starter + main. Available 12–3 PM.', code:'LUNCH22', badge:'LUNCH', exp:'Mon–Fri only' },
+  { title:'Lunch Special', desc:'Two-course lunch for just Rs. 2,200 per person — starter + main. Available 12–3 PM.', code:'LUNCH22', badge:'LUNCH', exp:'Mon–Fri only' },
 ];
 
 const FAQS = [
   { q:'What are your opening hours?', a:'We are open daily from 12:00 PM to 11:00 PM. Last orders are taken at 10:30 PM. On Sundays, we open at 11:00 AM for brunch service.' },
-  { q:'Where are you located?', a:'Saffron Grove is located at 12 Elgin Avenue, Mayfair, London W1K 4PL. We\'re a 5-minute walk from Bond Street Underground Station.' },
-  { q:'What payment methods do you accept?', a:'We accept all major credit and debit cards (Visa, Mastercard, Amex), Apple Pay, Google Pay, and cash. We do not charge a service fee.' },
-  { q:'Can I cancel or modify my reservation?', a:'Yes — cancellations and modifications are accepted up to 4 hours before your reservation time with no charge. After that, a £10 per person late cancellation fee may apply.' },
-  { q:'Do you offer delivery or takeaway?', a:'Yes! We offer takeaway directly from the restaurant. Delivery is available via Deliveroo and Uber Eats within a 3-mile radius, typically within 35–45 minutes.' },
+  { q:'Where are you located?', a:'Saffron Grove is located at 12 MM Alam Road, Gulberg III, Lahore. We\'re a 5-minute walk from Hafeez Centre.' },
+  { q:'What payment methods do you accept?', a:'We accept all major credit and debit cards (Visa, Mastercard), JazzCash, EasyPaisa, and cash. We do not charge a service fee.' },
+  { q:'Can I cancel or modify my reservation?', a:'Yes — cancellations and modifications are accepted up to 4 hours before your reservation time with no charge. After that, a Rs. 500 per person late cancellation fee may apply.' },
+  { q:'Do you offer delivery or takeaway?', a:'Yes! We offer takeaway directly from the restaurant. Delivery is available via Foodpanda and Careem Food within a 5km radius.' },
   { q:'Do you cater for dietary requirements?', a:'Absolutely. We have extensive vegetarian, vegan, and gluten-free options. Please inform us of any allergies at the time of booking — our chef can accommodate most requirements.' },
-  { q:'Is there parking available?', a:'Street parking is available on Elgin Avenue. The nearest NCP car park is on North Row, a 3-minute walk from us. We recommend public transport or rideshare.' },
-  { q:'Can I host a private event or buyout?', a:'Yes — we offer full private dining and venue buyout packages for events of all sizes. Please email events@saffrongrove.com for enquiries.' },
+  { q:'Is there parking available?', a:'Valet parking is available at our restaurant. Street parking is also available on MM Alam Road. We recommend using ride-hailing services like Careem or Uber.' },
+  { q:'Can I host a private event or buyout?', a:'Yes — we offer full private dining and venue buyout packages for events of all sizes. Please email events@saffrongrove.pk for enquiries.' },
 ];
-
-const SLOTS = ['12:00 PM','12:30 PM','1:00 PM','1:30 PM','7:00 PM','7:30 PM','8:00 PM','8:30 PM','9:00 PM','9:30 PM','10:00 PM','10:30 PM'];
-const UNAVAIL_SLOTS = ['7:30 PM','8:00 PM','9:00 PM'];
-const INTERESTS = ['Fine Dining','Date Night','Family Outing','Business Lunch','Birthday','Special Occasion'];
 
 // ═══════════════════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════════════════
-let cart = {}; // id: qty
+let cart = {};
 let activeFilter = 'All';
-let selectedSlot = '';
-let selectedGuests = '';
-let selectedInterest = '';
 let currentScreen = 'home';
 
 // ═══════════════════════════════════════════════════════
@@ -783,7 +807,7 @@ function updateCartUI() {
   const fl = document.getElementById('float-cart-label');
   if (cnt > 0) {
     fc.classList.add('visible');
-    fl.textContent = `View Cart · $${tot}`;
+    fl.textContent = `View Cart · Rs. ${tot.toLocaleString()}`;
   } else {
     fc.classList.remove('visible');
   }
@@ -794,7 +818,7 @@ function renderCart() {
   const placeBtn = document.getElementById('place-order-btn');
   const items = Object.entries(cart);
   if (!items.length) {
-    list.innerHTML = `<div class="cart-empty"><span style="font-size:40px;display:block;margin-bottom:12px">🛍️</span><p>Your cart is empty.<br>Add something delicious!</p></div>`;
+    list.innerHTML = `<div class="cart-empty"><i class="fa-solid fa-bag-shopping" style="font-size:40px;display:block;margin-bottom:12px"></i><p>Your cart is empty.<br>Add something delicious!</p></div>`;
     summary.innerHTML = '';
     placeBtn.style.display = 'none';
     return;
@@ -803,8 +827,8 @@ function renderCart() {
     const item = MENU.find(m=>m.id==id);
     if (!item) return '';
     return `<div class="cart-row">
-      <div class="cart-row-emoji">${item.emoji}</div>
-      <div class="cart-row-info"><h5>${item.name}</h5><p>$${(item.price*qty).toFixed(2)}</p></div>
+      <div class="cart-row-icon"><i class="${item.icon}"></i></div>
+      <div class="cart-row-info"><h5>${item.name}</h5><p>Rs. ${(item.price*qty).toLocaleString()}</p></div>
       <div class="cart-row-qty">
         <button onclick="removeFromCart(${id})">−</button>
         <span>${qty}</span>
@@ -813,11 +837,11 @@ function renderCart() {
     </div>`;
   }).join('');
   const sub = getCartTotal();
-  const tax = (sub * 0.12).toFixed(2);
-  const total = (sub + parseFloat(tax)).toFixed(2);
-  summary.innerHTML = `<div class="cart-summary-row"><span>Subtotal</span><span>$${sub.toFixed(2)}</span></div>
-    <div class="cart-summary-row"><span>Service (12%)</span><span>$${tax}</span></div>
-    <div class="cart-summary-row total"><span>Total</span><span>$${total}</span></div>`;
+  const tax = Math.round(sub * 0.05);
+  const total = sub + tax;
+  summary.innerHTML = `<div class="cart-summary-row"><span>Subtotal</span><span>Rs. ${sub.toLocaleString()}</span></div>
+    <div class="cart-summary-row"><span>GST (5%)</span><span>Rs. ${tax.toLocaleString()}</span></div>
+    <div class="cart-summary-row total"><span>Total</span><span>Rs. ${total.toLocaleString()}</span></div>`;
   placeBtn.style.display = 'flex';
 }
 
@@ -840,13 +864,13 @@ function renderMenu() {
   grid.innerHTML = filtered.map(item => {
     const qty = cart[item.id] || 0;
     return `<div class="menu-item">
-      <div class="menu-emoji">${item.emoji}</div>
+      <div class="menu-icon"><i class="${item.icon}"></i></div>
       <div class="menu-info">
         <h4>${item.name}</h4>
         <p>${item.desc}</p>
         <div class="tags">${item.tags.map(t=>`<span>${t}</span>`).join('')}</div>
         <div class="menu-bottom">
-          <span class="menu-price">$${item.price}</span>
+          <span class="menu-price">Rs. ${item.price.toLocaleString()}</span>
           ${qty === 0
             ? `<button class="add-btn" onclick="addToCart(${item.id})">+</button>`
             : `<div class="menu-qty">
@@ -867,13 +891,13 @@ function renderMenu() {
 function renderSpecials() {
   document.getElementById('specials-scroll').innerHTML = SPECIALS.map(s=>`
     <div class="special-card" onclick="goTo('menu')">
-      <div class="special-img">${s.emoji}</div>
+      <div class="special-img"><i class="${s.icon}" style="font-size:42px;color:var(--gold)"></i></div>
       <div class="special-info">
         <h4>${s.name}</h4>
         <p>${s.desc}</p>
         <div class="special-price">
-          <span class="price">$${s.price}</span>
-          <span class="old">$${s.old}</span>
+          <span class="price">Rs. ${s.price.toLocaleString()}</span>
+          <span class="old">Rs. ${s.old.toLocaleString()}</span>
           <span class="special-badge">${s.badge}</span>
         </div>
       </div>
@@ -883,34 +907,25 @@ function renderSpecials() {
 // ═══════════════════════════════════════════════════════
 //  BOOKING
 // ═══════════════════════════════════════════════════════
-function renderBooking() {
-  // Guest buttons
-  document.getElementById('guest-btns').innerHTML = ['1','2','3','4','5','6+'].map(g=>`
-    <button class="guest-btn${selectedGuests===g?' selected':''}" onclick="selectGuests('${g}')">${g}</button>`).join('');
-  // Time slots
-  document.getElementById('slots-grid').innerHTML = SLOTS.map(s=>{
-    const unavail = UNAVAIL_SLOTS.includes(s);
-    return `<button class="slot-btn${unavail?' unavail':''}${selectedSlot===s?' selected':''}"
-      ${unavail?'disabled':''} onclick="selectSlot('${s}')">${s}</button>`;
-  }).join('');
-  // Default date
+(function initBookingDate() {
   const today = new Date();
   today.setDate(today.getDate()+1);
   document.getElementById('b-date').value = today.toISOString().split('T')[0];
-}
-function selectSlot(slot) { selectedSlot = slot; renderBooking(); }
-function selectGuests(g) { selectedGuests = g; renderBooking(); }
+})();
+
 function submitBooking() {
   const name = document.getElementById('b-name').value.trim();
   const phone = document.getElementById('b-phone').value.trim();
   const date = document.getElementById('b-date').value;
+  const guests = document.getElementById('b-guests').value;
+  const time = document.getElementById('b-time').value;
   if (!name) { showToast('Please enter your name'); return; }
   if (!phone) { showToast('Please enter your phone number'); return; }
   if (!date) { showToast('Please select a date'); return; }
-  if (!selectedGuests) { showToast('Please select number of guests'); return; }
-  if (!selectedSlot) { showToast('Please select a time slot'); return; }
+  if (!guests) { showToast('Please select number of guests'); return; }
+  if (!time) { showToast('Please select a time slot'); return; }
   const ref = 'SG-' + Math.random().toString(36).toUpperCase().substr(2,8);
-  document.getElementById('confirm-icon').textContent = '🎉';
+  document.getElementById('confirm-icon').innerHTML = '<i class="fa-solid fa-party-horn"></i>';
   document.getElementById('confirm-title').textContent = 'Booking Confirmed!';
   document.getElementById('confirm-subtitle').textContent = 'Your table is reserved. We look forward to welcoming you!';
   document.getElementById('confirm-ref').textContent = ref;
@@ -918,8 +933,8 @@ function submitBooking() {
   document.getElementById('confirm-details').innerHTML = `
     <div class="confirm-row"><span class="k">Guest Name</span><span class="v">${name}</span></div>
     <div class="confirm-row"><span class="k">Date</span><span class="v">${formatDate(date)}</span></div>
-    <div class="confirm-row"><span class="k">Time</span><span class="v">${selectedSlot}</span></div>
-    <div class="confirm-row"><span class="k">Guests</span><span class="v">${selectedGuests} ${selectedGuests==='1'?'person':'guests'}</span></div>
+    <div class="confirm-row"><span class="k">Time</span><span class="v">${time}</span></div>
+    <div class="confirm-row"><span class="k">Guests</span><span class="v">${guests} ${guests==='1'?'person':'guests'}</span></div>
     <div class="confirm-row"><span class="k">Phone</span><span class="v">${phone}</span></div>`;
   goTo('confirm');
 }
@@ -937,7 +952,7 @@ function renderDeals() {
       <div class="deal-code-row">
         <div class="deal-code">${d.code}</div>
         <button class="copy-btn" id="copy-btn-${i}" onclick="copyCode('${d.code}', ${i})">
-          📋 Copy
+          <i class="fa-solid fa-copy"></i> Copy
         </button>
       </div>
     </div>`).join('');
@@ -946,9 +961,9 @@ function copyCode(code, idx) {
   navigator.clipboard.writeText(code).catch(()=>{});
   const btn = document.getElementById('copy-btn-'+idx);
   btn.classList.add('copied');
-  btn.innerHTML = '✅ Copied!';
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
   showToast(`Code "${code}" copied!`);
-  setTimeout(()=>{ btn.classList.remove('copied'); btn.innerHTML = '📋 Copy'; }, 2500);
+  setTimeout(()=>{ btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy'; }, 2500);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -974,21 +989,17 @@ function toggleFAQ(i) {
 // ═══════════════════════════════════════════════════════
 //  LEAD CAPTURE
 // ═══════════════════════════════════════════════════════
-function renderLeadForm() {
-  document.getElementById('interest-grid').innerHTML = INTERESTS.map(i=>`
-    <button class="interest-btn${selectedInterest===i?' selected':''}" onclick="selectInterest('${i}')">${i}</button>`).join('');
-}
-function selectInterest(i) { selectedInterest = i; renderLeadForm(); }
 function submitLead() {
   const name = document.getElementById('l-name').value.trim();
   const email = document.getElementById('l-email').value.trim();
   const phone = document.getElementById('l-phone').value.trim();
+  const interest = document.getElementById('l-interest').value;
   if (!name) { showToast('Please enter your name'); return; }
   if (!email || !email.includes('@')) { showToast('Please enter a valid email'); return; }
   if (!phone) { showToast('Please enter your phone/WhatsApp'); return; }
-  if (!selectedInterest) { showToast('Please select your dining interest'); return; }
+  if (!interest) { showToast('Please select your dining interest'); return; }
   const code = 'WELCOME' + Math.floor(Math.random()*9000+1000);
-  document.getElementById('confirm-icon').textContent = '🎁';
+  document.getElementById('confirm-icon').innerHTML = '<i class="fa-solid fa-gift"></i>';
   document.getElementById('confirm-title').textContent = 'Here\'s Your Gift!';
   document.getElementById('confirm-subtitle').textContent = `Welcome to Saffron Grove, ${name.split(' ')[0]}! Your exclusive discount is ready.`;
   document.getElementById('confirm-ref').textContent = code;
@@ -996,7 +1007,7 @@ function submitLead() {
   document.getElementById('confirm-details').innerHTML = `
     <div class="confirm-row"><span class="k">Name</span><span class="v">${name}</span></div>
     <div class="confirm-row"><span class="k">Email</span><span class="v">${email}</span></div>
-    <div class="confirm-row"><span class="k">Dining For</span><span class="v">${selectedInterest}</span></div>
+    <div class="confirm-row"><span class="k">Dining For</span><span class="v">${interest}</span></div>
     <div class="confirm-row"><span class="k">Discount</span><span class="v" style="color:var(--gold)">25% Off Any Order</span></div>`;
   goTo('confirm');
 }
@@ -1009,18 +1020,20 @@ function placeOrder() {
   const ref = 'ORD-' + Math.random().toString(36).toUpperCase().substr(2,9);
   const items = Object.entries(cart).map(([id,qty])=>{
     const item = MENU.find(m=>m.id==id);
-    return `${item.emoji} ${item.name} ×${qty}`;
+    return `${item.name} ×${qty}`;
   }).join(', ');
-  const total = (getCartTotal() * 1.12).toFixed(2);
+  const sub = getCartTotal();
+  const tax = Math.round(sub * 0.05);
+  const total = sub + tax;
   closeCart();
-  document.getElementById('confirm-icon').textContent = '✅';
+  document.getElementById('confirm-icon').innerHTML = '<i class="fa-solid fa-check"></i>';
   document.getElementById('confirm-title').textContent = 'Order Placed!';
   document.getElementById('confirm-subtitle').textContent = 'Your order is confirmed and will be ready in 25–35 minutes.';
   document.getElementById('confirm-ref').textContent = ref;
   document.getElementById('confirm-ref-sub').textContent = 'Track your order with this reference';
   document.getElementById('confirm-details').innerHTML = `
     <div class="confirm-row"><span class="k">Items</span><span class="v" style="font-size:12px;text-align:right;max-width:200px">${items}</span></div>
-    <div class="confirm-row"><span class="k">Total (incl. service)</span><span class="v" style="color:var(--gold)">$${total}</span></div>
+    <div class="confirm-row"><span class="k">Total (incl. GST)</span><span class="v" style="color:var(--gold)">Rs. ${total.toLocaleString()}</span></div>
     <div class="confirm-row"><span class="k">Est. Time</span><span class="v">25–35 mins</span></div>`;
   cart = {};
   updateCartUI();
@@ -1045,10 +1058,8 @@ function showToast(msg) {
 renderSpecials();
 renderFilterBar();
 renderMenu();
-renderBooking();
 renderDeals();
 renderFAQ();
-renderLeadForm();
 </script>
 </body>
 </html>
