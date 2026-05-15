@@ -1,4 +1,4 @@
-export function generateRef(type: 'BOOK' | 'ORD'): string {
+export function generateRef(type: 'BOOK' | 'ORD' | 'LEAD'): string {
   return `${type}-${Date.now().toString().slice(-7)}`;
 }
 
