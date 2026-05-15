@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Saffron Grove — Fine Dining Experience Pakistan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root {
+    --green: #1a3a2a;
+    --green-light: #254d39;
+    --green-mid: #1f4432;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-pale: #f5e9c8;
+    --cream: #faf7f0;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-muted: #888;
+    --red: #c0392b;
+    --shadow: 0 4px 24px rgba(0,0,0,0.10);
+    --shadow-deep: 0 8px 40px rgba(0,0,0,0.18);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --nav-h: 68px;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; flex-direction: column; min-height: 100vh; padding-bottom: var(--nav-h); animation: fadeUp .35s ease; }
+  .screen.active { display: flex; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(14px);} to { opacity:1; transform:none;} }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--green);
+    padding: 14px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topbar-logo { display: flex; align-items: center; gap: 10px; }
+  .topbar-logo i { color: var(--gold); font-size: 20px; }
+  .topbar-logo span { font-family: var(--font-display); font-size: 22px; color: var(--white); font-weight: 600; letter-spacing: .5px; }
+  .topbar-icons { display: flex; gap: 16px; }
+  .topbar-icons button { background: none; border: none; color: var(--gold-light); font-size: 18px; cursor: pointer; position: relative; }
+  .cart-badge {
+    position: absolute; top: -6px; right: -8px;
+    background: var(--gold); color: var(--green); font-size: 10px;
+    font-weight: 700; border-radius: 50%; width: 18px; height: 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    height: var(--nav-h);
+    background: var(--green);
+    display: flex; align-items: center; justify-content: space-around;
+    border-top: 1px solid rgba(201,168,76,.2);
+    box-shadow: 0 -4px 20px rgba(0,0,0,.2);
+  }
+  .nav-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,.45);
+    font-family: var(--font-body); font-size: 10px; font-weight: 500;
+    letter-spacing: .5px; text-transform: uppercase;
+    padding: 8px 12px; border-radius: 10px;
+    transition: all .2s;
+  }
+  .nav-btn i { font-size: 19px; }
+  .nav-btn.active { color: var(--gold); }
+  .nav-btn.active i { transform: translateY(-2px); }
+
+  /* ── HOME ── */
+  .hero {
+    background: linear-gradient(160deg, var(--green) 0%, var(--green-light) 60%, #2e5e42 100%);
+    padding: 36px 24px 32px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -30px; right: -20px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(201,168,76,.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-tag { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .hero-title { font-family: var(--font-display); font-size: 38px; color: var(--white); line-height: 1.15; font-weight: 300; }
+  .hero-title em { color: var(--gold-light); font-style: italic; }
+  .hero-sub { color: rgba(255,255,255,.65); font-size: 13px; margin-top: 10px; line-height: 1.6; }
+  .hero-actions { display: flex; gap: 12px; margin-top: 22px; }
+  .btn-gold {
+    background: var(--gold); color: var(--green);
+    border: none; border-radius: 50px; padding: 12px 24px;
+    font-family: var(--font-body); font-weight: 600; font-size: 13px;
+    cursor: pointer; display: flex; align-items: center; gap: 7px;
+    letter-spacing: .3px; transition: all .2s; white-space: nowrap;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 1.5px solid rgba(255,255,255,.4); border-radius: 50px; padding: 12px 20px;
+    font-family: var(--font-body); font-size: 13px; cursor: pointer;
+    transition: all .2s; white-space: nowrap;
+  }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+  .quick-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; padding: 24px 20px 0;
+  }
+  .quick-card {
+    background: var(--white); border-radius: var(--radius-sm);
+    padding: 16px 8px; text-align: center; cursor: pointer;
+    box-shadow: var(--shadow); transition: transform .2s;
+    border: 1.5px solid transparent;
+  }
+  .quick-card:hover { transform: translateY(-3px); border-color: var(--gold-pale); }
+  .quick-card i { font-size: 24px; color: var(--gold); display: block; margin-bottom: 6px; }
+  .quick-card span { font-size: 11px; font-weight: 500; color: var(--text-mid); letter-spacing: .3px; }
+
+  .section-title {
+    font-family: var(--font-display); font-size: 24px; font-weight: 500;
+    color: var(--green); padding: 24px 20px 14px;
+  }
+  .section-title small { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+
+  .specials-scroll { display: flex; gap: 14px; padding: 0 20px 20px; overflow-x: auto; scrollbar-width: none; }
+  .specials-scroll::-webkit-scrollbar { display: none; }
+  .special-card {
+    min-width: 180px; background: var(--white); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow); flex-shrink: 0;
+    cursor: pointer; transition: transform .2s;
+  }
+  .special-card:hover { transform: scale(1.02); }
+  .special-img {
+    height: 120px; display: flex; align-items: center; justify-content: center;
+    font-size: 52px; background: #f9f7ef;
+  }
+  .special-info { padding: 12px; }
+  .special-info h4 { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--green); }
+  .special-info p { font-size: 11px; color: var(--text-muted); margin: 3px 0 8px; }
+  .special-price { display: flex; align-items: center; gap: 6px; }
+  .special-price .price { font-weight: 700; font-size: 15px; color: var(--gold); }
+  .special-price .old { font-size: 12px; color: var(--text-muted); text-decoration: line-through; }
+  .special-badge {
+    background: var(--green); color: var(--gold); font-size: 10px;
+    font-weight: 700; border-radius: 4px; padding: 2px 6px; letter-spacing: .5px;
+  }
+
+  .promo-banner {
+    margin: 0 20px 24px; background: linear-gradient(135deg, var(--green) 0%, #2e6645 100%);
+    border-radius: var(--radius); padding: 20px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .promo-banner .promo-text h3 { font-family: var(--font-display); font-size: 20px; color: var(--gold-light); font-weight: 500; }
+  .promo-banner .promo-text p { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 4px; }
+  .promo-banner .promo-icon { font-size: 36px; opacity: .85; color: var(--gold-light); }
+
+  .info-banner {
+    margin: 0 20px 16px; background: var(--gold-pale); border-radius: var(--radius-sm);
+    padding: 14px 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .info-banner i { color: var(--gold); font-size: 16px; flex-shrink: 0; }
+  .info-banner span { font-size: 13px; color: var(--green); font-weight: 500; }
+
+  /* ── MENU ── */
+  .filter-bar {
+    display: flex; gap: 8px; padding: 16px 20px;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .filter-pill {
+    background: var(--white); border: 1.5px solid #e0dbd0;
+    border-radius: 50px; padding: 8px 16px;
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    white-space: nowrap; transition: all .2s; flex-shrink: 0;
+    font-family: var(--font-body);
+  }
+  .filter-pill.active { background: var(--green); color: var(--gold); border-color: var(--green); }
+
+  .menu-grid { display: flex; flex-direction: column; gap: 0; padding: 0 20px 16px; }
+  .menu-item {
+    display: flex; gap: 14px; align-items: center;
+    background: var(--white); border-radius: var(--radius); padding: 14px;
+    margin-bottom: 12px; box-shadow: var(--shadow); cursor: pointer; transition: all .2s;
+  }
+  .menu-item:hover { transform: translateX(3px); box-shadow: var(--shadow-deep); }
+  .menu-icon { font-size: 24px; flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 10px; color: var(--gold); }
+  .menu-info { flex: 1; }
+  .menu-info h4 { font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--green); }
+  .menu-info p { font-size: 12px; color: var(--text-muted); margin: 3px 0 8px; line-height: 1.4; }
+  .menu-info .tags span {
+    background: var(--gold-pale); color: var(--green); font-size: 10px;
+    font-weight: 600; border-radius: 4px; padding: 2px 7px; margin-right: 4px;
+    letter-spacing: .3px;
+  }
+  .menu-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+  .menu-price { font-weight: 700; font-size: 16px; color: var(--gold); }
+  .add-btn {
+    background: var(--green); color: var(--gold); border: none;
+    border-radius: 8px; width: 34px; height: 34px; font-size: 18px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all .2s;
+  }
+  .add-btn:hover { background: var(--green-light); transform: scale(1.1); }
+  .add-btn.added { background: var(--gold); color: var(--green); }
+  .menu-qty {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .menu-qty button { background: none; border: 1.5px solid var(--gold); color: var(--gold); width: 28px; height: 28px; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .menu-qty span { font-weight: 700; font-size: 15px; color: var(--green); min-width: 16px; text-align: center; }
+
+  /* ── CART DRAWER ── */
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 300; display: none; backdrop-filter: blur(3px); }
+  .overlay.open { display: block; animation: fadeIn .2s ease; }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  .cart-drawer {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 400;
+    background: var(--white); border-radius: 24px 24px 0 0;
+    max-height: 85vh; overflow-y: auto;
+    transform: translateY(100%); transition: transform .35s cubic-bezier(.32,.72,0,1);
+    padding-bottom: calc(var(--nav-h) + 12px);
+  }
+  .cart-drawer.open { transform: none; }
+  .drawer-handle { width: 44px; height: 4px; background: #ddd; border-radius: 4px; margin: 14px auto 0; }
+  .drawer-title { font-family: var(--font-display); font-size: 24px; color: var(--green); padding: 18px 20px 12px; border-bottom: 1px solid #f0ebe0; }
+  .cart-list { padding: 12px 20px; }
+  .cart-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 0; border-bottom: 1px solid #f5f0e8;
+  }
+  .cart-row-icon { font-size: 20px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 8px; flex-shrink: 0; color: var(--gold); }
+  .cart-row-info { flex: 1; }
+  .cart-row-info h5 { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+  .cart-row-info p { font-size: 12px; color: var(--gold); font-weight: 600; margin-top: 2px; }
+  .cart-row-qty { display: flex; align-items: center; gap: 10px; }
+  .cart-row-qty button { background: var(--cream); border: none; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; font-size: 15px; color: var(--green); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .cart-row-qty span { font-weight: 700; font-size: 14px; min-width: 16px; text-align: center; }
+  .cart-summary { padding: 16px 20px; }
+  .cart-summary-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-mid); margin-bottom: 8px; }
+  .cart-summary-row.total { font-size: 17px; font-weight: 700; color: var(--green); border-top: 1px solid #ede8dc; padding-top: 12px; margin-top: 4px; }
+  .cart-empty { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+  .cart-empty i { font-size: 40px; color: var(--gold-pale); margin-bottom: 12px; display: block; }
+
+  /* ── BOOKING ── */
+  .booking-hero {
+    background: linear-gradient(160deg, var(--green) 0%, var(--green-light) 100%);
+    padding: 32px 24px;
+  }
+  .booking-hero h2 { font-family: var(--font-display); font-size: 30px; color: var(--white); font-weight: 300; }
+  .booking-hero p { color: rgba(255,255,255,.65); font-size: 13px; margin-top: 8px; }
+
+  .form-card { background: var(--white); margin: -20px 16px 0; border-radius: var(--radius); box-shadow: var(--shadow-deep); padding: 24px 20px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 7px; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 13px 14px;
+    border: 1.5px solid #e8e2d8; border-radius: var(--radius-sm);
+    font-family: var(--font-body); font-size: 14px; color: var(--text-dark);
+    background: var(--cream); outline: none; transition: border .2s;
+    -webkit-appearance: none; appearance: none;
+  }
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23c9a84c'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+  .slot-btn {
+    padding: 11px 8px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500;
+    border: 1.5px solid #e8e2d8; background: var(--cream); cursor: pointer; text-align: center;
+    transition: all .2s; font-family: var(--font-body);
+  }
+  .slot-btn:hover:not(.unavail) { border-color: var(--gold); color: var(--gold); }
+  .slot-btn.selected { background: var(--green); border-color: var(--green); color: var(--gold); font-weight: 700; }
+  .slot-btn.unavail { background: #f8f5f0; color: #ccc; cursor: not-allowed; position: relative; }
+  .slot-btn.unavail::after { content: 'Full'; display: block; font-size: 9px; color: var(--red); letter-spacing: .5px; }
+
+  .guest-btns { display: flex; gap: 8px; margin-top: 8px; }
+  .guest-btn {
+    flex: 1; padding: 11px 4px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500;
+    border: 1.5px solid #e8e2d8; background: var(--cream); cursor: pointer;
+    transition: all .2s; text-align: center; font-family: var(--font-body);
+  }
+  .guest-btn.selected { background: var(--green); border-color: var(--green); color: var(--gold); }
+
+  .btn-full {
+    width: 100%; padding: 15px; border-radius: var(--radius-sm);
+    background: var(--green); color: var(--gold);
+    font-family: var(--font-body); font-size: 15px; font-weight: 700;
+    border: none; cursor: pointer; letter-spacing: .5px; margin-top: 8px;
+    transition: all .2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-full:hover { background: var(--green-light); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,58,42,.3); }
+  .btn-full.gold { background: var(--gold); color: var(--green); }
+  .btn-full.gold:hover { background: var(--gold-light); }
+
+  /* ── DEALS ── */
+  .deals-hero { background: linear-gradient(135deg, var(--green), #2a5c40); padding: 28px 24px; }
+  .deals-hero h2 { font-family: var(--font-display); font-size: 30px; color: var(--white); font-weight: 300; }
+  .deals-hero p { color: rgba(255,255,255,.65); font-size: 13px; margin-top: 8px; }
+
+  .deals-list { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .deal-card {
+    background: var(--white); border-radius: var(--radius); padding: 20px;
+    box-shadow: var(--shadow); border-left: 4px solid var(--gold);
+    position: relative; overflow: hidden;
+  }
+  .deal-card::after { content: ''; position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: radial-gradient(circle, rgba(201,168,76,.1), transparent 70%); border-radius: 50%; }
+  .deal-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .deal-badge { background: var(--gold-pale); color: var(--green); font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: .5px; text-transform: uppercase; }
+  .deal-exp { font-size: 11px; color: var(--text-muted); }
+  .deal-title { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--green); margin: 8px 0 4px; }
+  .deal-desc { font-size: 13px; color: var(--text-mid); margin-bottom: 14px; line-height: 1.5; }
+  .deal-code-row { display: flex; gap: 10px; align-items: center; }
+  .deal-code {
+    flex: 1; background: var(--cream); border: 1.5px dashed var(--gold);
+    border-radius: 8px; padding: 10px 14px; font-family: monospace;
+    font-size: 15px; font-weight: 700; color: var(--green); letter-spacing: 2px;
+  }
+  .copy-btn {
+    background: var(--green); color: var(--gold); border: none;
+    padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all .2s;
+    font-family: var(--font-body);
+  }
+  .copy-btn:hover { background: var(--green-light); }
+  .copy-btn.copied { background: #27ae60; color: #fff; }
+
+  /* ── FAQ ── */
+  .faq-hero { background: linear-gradient(160deg, var(--green), #2c5a40); padding: 32px 24px; }
+  .faq-hero h2 { font-family: var(--font-display); font-size: 30px; color: var(--white); font-weight: 300; }
+  .faq-hero p { color: rgba(255,255,255,.65); font-size: 13px; margin-top: 8px; }
+
+  .faq-list { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .faq-item { background: var(--white); border-radius: var(--radius-sm); box-shadow: var(--shadow); overflow: hidden; }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 18px; cursor: pointer; transition: background .2s;
+  }
+  .faq-q:hover { background: var(--cream); }
+  .faq-q span { font-size: 14px; font-weight: 500; color: var(--text-dark); line-height: 1.4; padding-right: 12px; }
+  .faq-q .faq-arrow { color: var(--gold); font-size: 18px; transition: transform .25s; flex-shrink: 0; line-height: 1; }
+  .faq-item.open .faq-q .faq-arrow { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s cubic-bezier(0.4,0,0.2,1), padding .25s;
+    padding: 0 18px; font-size: 13px; color: var(--text-mid); line-height: 1.65;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 18px 16px; }
+
+  /* ── LEAD CAPTURE ── */
+  .lead-hero {
+    background: linear-gradient(160deg, var(--green) 0%, #2e6448 100%);
+    padding: 36px 24px 60px; position: relative; text-align: center;
+  }
+  .lead-hero::after { content: '🎁'; font-size: 52px; display: block; margin-bottom: 12px; }
+  .lead-hero h2 { font-family: var(--font-display); font-size: 32px; color: var(--white); font-weight: 300; }
+  .lead-hero .gold-txt { color: var(--gold-light); }
+  .lead-hero p { color: rgba(255,255,255,.7); font-size: 13px; margin-top: 8px; line-height: 1.6; }
+
+  .lead-form-card { background: var(--white); margin: -28px 16px 0; border-radius: var(--radius); box-shadow: var(--shadow-deep); padding: 28px 20px; }
+  .interest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+  .interest-btn {
+    padding: 11px 8px; border-radius: var(--radius-sm); font-size: 13px;
+    border: 1.5px solid #e8e2d8; background: var(--cream); cursor: pointer;
+    text-align: center; transition: all .2s; font-family: var(--font-body);
+  }
+  .interest-btn.selected { background: var(--green); border-color: var(--green); color: var(--gold); font-weight: 600; }
+
+  /* ── CONFIRMATION ── */
+  .confirm-screen {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 80vh; padding: 40px 24px; text-align: center;
+    animation: popIn .4s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes popIn { from{opacity:0;transform:scale(.85)} to{opacity:1;transform:none} }
+  .confirm-icon {
+    width: 80px; height: 80px; background: linear-gradient(135deg, var(--green), var(--green-light));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 36px; margin-bottom: 20px; box-shadow: 0 8px 24px rgba(26,58,42,.3);
+  }
+  .confirm-screen h2 { font-family: var(--font-display); font-size: 30px; color: var(--green); font-weight: 500; }
+  .confirm-screen p { color: var(--text-muted); font-size: 14px; margin-top: 8px; line-height: 1.6; }
+  .ref-box {
+    background: var(--cream); border: 2px solid var(--gold-pale);
+    border-radius: var(--radius-sm); padding: 16px 24px; margin: 24px 0;
+    text-align: center;
+  }
+  .ref-box .ref-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .ref-box .ref-num { font-family: monospace; font-size: 22px; font-weight: 700; color: var(--green); letter-spacing: 3px; }
+  .ref-box .ref-sub { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+  .confirm-details { background: var(--white); border-radius: var(--radius-sm); padding: 16px 20px; box-shadow: var(--shadow); width: 100%; margin-bottom: 16px; }
+  .confirm-row { display: flex; justify-content: space-between; font-size: 13px; padding: 7px 0; border-bottom: 1px solid #f5f0e8; }
+  .confirm-row:last-child { border-bottom: none; }
+  .confirm-row .k { color: var(--text-muted); }
+  .confirm-row .v { font-weight: 600; color: var(--green); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; top: 80px; left: 50%; transform: translateX(-50%) translateY(-100px);
+    background: var(--green); color: var(--white);
+    padding: 12px 22px; border-radius: 50px; font-size: 13px; font-weight: 500;
+    z-index: 500; transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+    box-shadow: 0 4px 20px rgba(0,0,0,.2); white-space: nowrap;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast i { color: var(--gold); }
+
+  /* ── MISC ── */
+  .pad20 { padding: 0 20px 20px; }
+  .mt-auto { margin-top: auto; }
+  .txt-center { text-align: center; }
+
+  .floating-cart {
+    position: fixed; bottom: calc(var(--nav-h) + 12px); right: 16px; z-index: 150;
+    background: var(--green); color: var(--gold); border: none;
+    padding: 14px 20px; border-radius: 50px;
+    display: none; align-items: center; gap: 10px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 700;
+    box-shadow: 0 4px 20px rgba(26,58,42,.4); cursor: pointer;
+    transition: all .3s;
+  }
+  .floating-cart.visible { display: flex; animation: bounceIn .4s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes bounceIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+
+  @media (max-width: 375px) {
+    .slots-grid { grid-template-columns: repeat(2, 1fr); }
+    .quick-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+<!-- FLOATING CART -->
+<button class="floating-cart" id="floating-cart" onclick="openCart()">
+  <i class="fa-solid fa-bag-shopping" style="font-size:18px"></i>
+  <span id="float-cart-label">View Cart · Rs. 0</span>
+</button>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cart-drawer">
+  <div class="drawer-handle"></div>
+  <div class="drawer-title">Your Order</div>
+  <div class="cart-list" id="cart-list"></div>
+  <div class="cart-summary" id="cart-summary"></div>
+  <div class="pad20">
+    <button class="btn-full gold" onclick="placeOrder()" id="place-order-btn" style="display:none">
+      <i class="fa-solid fa-check"></i> Place Order
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ HOME SCREEN ══════════ -->
+<div class="screen active" id="screen-home">
+  <div class="topbar">
+    <div class="topbar-logo">
+      <i class="fa-solid fa-leaf"></i>
+      <span>Saffron Grove</span>
+    </div>
+    <div class="topbar-icons">
+      <button onclick="openCart()"><i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cart-badge" style="display:none">0</span></button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-tag">✦ Fine Dining Experience</div>
+    <h1 class="hero-title">Where Every<br>Meal is a<br><em>Masterpiece</em></h1>
+    <p class="hero-sub">Exquisite flavours crafted with the finest ingredients, served with warmth.</p>
+    <div class="hero-actions">
+      <button class="btn-gold" onclick="goTo('menu')"><i class="fa-solid fa-utensils"></i> View Menu</button>
+      <button class="btn-outline" onclick="goTo('booking')">Reserve Table</button>
+    </div>
+  </div>
+
+  <div class="quick-grid">
+    <div class="quick-card" onclick="goTo('menu')"><i class="fa-solid fa-utensils"></i><span>Menu</span></div>
+    <div class="quick-card" onclick="goTo('booking')"><i class="fa-regular fa-calendar-days"></i><span>Reserve</span></div>
+    <div class="quick-card" onclick="goTo('deals')"><i class="fa-solid fa-tag"></i><span>Deals</span></div>
+    <div class="quick-card" onclick="goTo('lead')"><i class="fa-solid fa-gift"></i><span>Offer</span></div>
+  </div>
+
+  <div class="section-title"><small>Today's Highlights</small>Chef's Specials</div>
+  <div class="specials-scroll" id="specials-scroll"></div>
+
+  <div class="promo-banner">
+    <div class="promo-text">
+      <h3>20% Off Today!</h3>
+      <p>Use code <strong style="color:var(--gold-light)">SAFFRON20</strong> on dine-in orders above Rs. 4,000</p>
+    </div>
+    <div class="promo-icon"><i class="fa-solid fa-percent"></i></div>
+  </div>
+
+  <div class="info-banner">
+    <i class="fa-solid fa-location-dot"></i>
+    <span>12 MM Alam Road, Lahore · Open 12pm–11pm Daily</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ MENU SCREEN ══════════ -->
+<div class="screen" id="screen-menu">
+  <div class="topbar">
+    <div class="topbar-logo">
+      <i class="fa-solid fa-leaf"></i><span>Menu</span>
+    </div>
+    <div class="topbar-icons">
+      <button onclick="openCart()"><i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cart-badge2" style="display:none">0</span></button>
+    </div>
+  </div>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="menu-grid" id="menu-grid"></div>
+</div>
+
+<!-- ══════════════════════════════════════════ BOOKING SCREEN ══════ -->
+<div class="screen" id="screen-booking">
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Reserve a Table</span></div></div>
+  <div class="booking-hero">
+    <h2>Book Your Table</h2>
+    <p>Secure your perfect dining experience in seconds</p>
+  </div>
+  <div style="padding:24px 16px 32px">
+    <div class="form-card">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="b-name" placeholder="e.g. Ahmed Khan">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="b-phone" placeholder="+92 300 0000000">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="b-date">
+        </div>
+        <div class="form-group">
+          <label>Guests</label>
+          <select id="b-guests" style="width:100%;padding:13px 14px;border:1.5px solid #e8e2d8;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14px;color:var(--text-dark);background:var(--cream);cursor:pointer;">
+            <option value="">Select guests</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+            <option value="6">6+ People</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Select Time Slot</label>
+        <select id="b-time" style="width:100%;padding:13px 14px;border:1.5px solid #e8e2d8;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14px;color:var(--text-dark);background:var(--cream);cursor:pointer;">
+          <option value="">Choose a time</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="12:30 PM">12:30 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="1:30 PM">1:30 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+          <option value="7:30 PM" disabled>7:30 PM (Full)</option>
+          <option value="8:00 PM" disabled>8:00 PM (Full)</option>
+          <option value="9:00 PM">9:00 PM</option>
+          <option value="9:30 PM">9:30 PM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Special Requests (Optional)</label>
+        <input type="text" id="b-notes" placeholder="Allergies, occasion, seating preference…">
+      </div>
+      <button class="btn-full" onclick="submitBooking()">
+        <i class="fa-solid fa-check"></i> Confirm Booking
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ DEALS SCREEN ══════════ -->
+<div class="screen" id="screen-deals">
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Deals & Offers</span></div></div>
+  <div class="deals-hero">
+    <h2>Today's Deals</h2>
+    <p>Exclusive offers for our valued guests — tap to copy & save!</p>
+  </div>
+  <div class="deals-list" id="deals-list"></div>
+  <div class="pad20">
+    <button class="btn-full gold" onclick="goTo('lead')"><i class="fa-solid fa-gift"></i> Unlock Special Discount</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ FAQ SCREEN ══════════ -->
+<div class="screen" id="screen-faq">
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Help & FAQ</span></div></div>
+  <div class="faq-hero">
+    <h2>Got Questions?</h2>
+    <p>We've got answers. Tap any question to expand.</p>
+  </div>
+  <div class="faq-list" id="faq-list"></div>
+</div>
+
+<!-- ══════════════════════════════════════════ LEAD CAPTURE ══════════ -->
+<div class="screen" id="screen-lead">
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Exclusive Offer</span></div></div>
+  <div class="lead-hero">
+    <h2>Unlock Your <span class="gold-txt">25% Off</span><br>Welcome Discount</h2>
+    <p>Fill in your details and receive an exclusive promo code instantly — just for you.</p>
+  </div>
+  <div class="lead-form-card" style="margin-bottom:24px">
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="l-name" placeholder="First & Last Name">
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="l-email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label>Phone / WhatsApp</label>
+      <input type="tel" id="l-phone" placeholder="+92 300 0000000">
+    </div>
+    <div class="form-group">
+      <label>Dining Interest</label>
+      <select id="l-interest" style="width:100%;padding:13px 14px;border:1.5px solid #e8e2d8;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14px;color:var(--text-dark);background:var(--cream);cursor:pointer;">
+        <option value="">Select interest</option>
+        <option value="Fine Dining">Fine Dining</option>
+        <option value="Date Night">Date Night</option>
+        <option value="Family Outing">Family Outing</option>
+        <option value="Business Lunch">Business Lunch</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Special Occasion">Special Occasion</option>
+      </select>
+    </div>
+    <button class="btn-full gold" onclick="submitLead()" style="margin-top:16px">
+      <i class="fa-solid fa-unlock"></i> Claim My 25% Discount
+    </button>
+    <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px">
+      <i class="fa-solid fa-lock"></i> Your details are 100% private and never shared.
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ CONFIRMATION SCREEN ══════════ -->
+<div class="screen" id="screen-confirm">
+  <div class="topbar"><div class="topbar-logo"><i class="fa-solid fa-leaf"></i><span>Saffron Grove</span></div></div>
+  <div class="confirm-screen">
+    <div class="confirm-icon" id="confirm-icon"><i class="fa-solid fa-check"></i></div>
+    <h2 id="confirm-title">Booking Confirmed!</h2>
+    <p id="confirm-subtitle">Your table has been reserved. We'll send a reminder before your visit.</p>
+    <div class="ref-box">
+      <div class="ref-label">Reference Number</div>
+      <div class="ref-num" id="confirm-ref">---</div>
+      <div class="ref-sub" id="confirm-ref-sub">Screenshot this for check-in</div>
+    </div>
+    <div class="confirm-details" id="confirm-details"></div>
+    <button class="btn-full" onclick="goHome()"><i class="fa-solid fa-house"></i> Back to Home</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ BOTTOM NAV ══════════ -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" id="nav-home" onclick="goTo('home')"><i class="fa-solid fa-house"></i>Home</button>
+  <button class="nav-btn" id="nav-menu" onclick="goTo('menu')"><i class="fa-solid fa-utensils"></i>Menu</button>
+  <button class="nav-btn" id="nav-booking" onclick="goTo('booking')"><i class="fa-regular fa-calendar-days"></i>Reserve</button>
+  <button class="nav-btn" id="nav-deals" onclick="goTo('deals')"><i class="fa-solid fa-tag"></i>Deals</button>
+  <button class="nav-btn" id="nav-faq" onclick="goTo('faq')"><i class="fa-solid fa-circle-question"></i>Help</button>
+</nav>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  DATA (Pakistan - Prices in PKR)
+// ═══════════════════════════════════════════════════════
+const MENU = [
+  // Starters
+  { id:1, cat:'Starters', name:'Saffron Arancini', desc:'Crispy risotto balls with mozzarella & truffle oil', price:1200, icon:'fa-solid fa-cheese', tags:['Veg','Chef Pick'] },
+  { id:2, cat:'Starters', name:'Burrata & Heritage Tomato', desc:'Creamy burrata, heirloom tomatoes, basil oil', price:1400, icon:'fa-solid fa-leaf', tags:['Veg','GF'] },
+  { id:3, cat:'Starters', name:'Spiced Lamb Kofta', desc:'Moroccan-spiced lamb with mint yoghurt', price:1500, icon:'fa-solid fa-drumstick-bite', tags:['Spicy'] },
+  { id:4, cat:'Starters', name:'Smoked Salmon Blinis', desc:'Scottish smoked salmon, crème fraîche, capers', price:1600, icon:'fa-solid fa-fish', tags:['GF'] },
+  // Mains
+  { id:5, cat:'Mains', name:'Saffron Risotto', desc:'Carnaroli rice, Parmesan, wild mushrooms & saffron butter', price:2400, icon:'fa-solid fa-wheat-awn', tags:['Veg','Signature'] },
+  { id:6, cat:'Mains', name:'Pan-Seared Sea Bass', desc:'Lemon herb crust, sautéed spinach, beurre blanc', price:2800, icon:'fa-solid fa-fish-fins', tags:['GF','Chef Pick'] },
+  { id:7, cat:'Mains', name:'Slow-Braised Lamb Shank', desc:'12-hour braised lamb, root vegetable purée, jus', price:3200, icon:'fa-solid fa-bowl-food', tags:['GF'] },
+  { id:8, cat:'Mains', name:'Wild Mushroom Linguine', desc:'Forest mushrooms, truffle oil, Parmesan, fresh herbs', price:2200, icon:'fa-solid fa-utensils', tags:['Veg'] },
+  // Grill
+  { id:9, cat:'Grill', name:'Prime Ribeye 300g', desc:'28-day dry-aged, served with chimichurri & fries', price:4500, icon:'fa-solid fa-drumstick-bite', tags:['Chef Pick'] },
+  { id:10, cat:'Grill', name:'Grilled Lobster Half', desc:'Garlic herb butter, seasonal greens', price:5200, icon:'fa-solid fa-shrimp', tags:['Premium'] },
+  { id:11, cat:'Grill', name:'Chicken Supreme', desc:'Free-range corn-fed, wild garlic butter, asparagus', price:2600, icon:'fa-solid fa-drumstick-bite', tags:['GF'] },
+  { id:12, cat:'Grill', name:'Halloumi Steak', desc:'Grilled halloumi, charred veg, pomegranate glaze', price:2000, icon:'fa-solid fa-cheese', tags:['Veg','GF'] },
+  // Desserts
+  { id:13, cat:'Desserts', name:'Baklava Cheesecake', desc:'Rose water, pistachio crumb, honey drizzle', price:1000, icon:'fa-solid fa-cake-candles', tags:['Veg','Signature'] },
+  { id:14, cat:'Desserts', name:'Warm Chocolate Fondant', desc:'Valrhona dark chocolate, vanilla bean ice cream', price:1100, icon:'fa-solid fa-cookie-bite', tags:['Veg'] },
+  { id:15, cat:'Desserts', name:'Saffron Panna Cotta', desc:'Delicate saffron & cardamom, mango coulis', price:900, icon:'fa-solid fa-ice-cream', tags:['Veg','GF'] },
+  // Beverages
+  { id:16, cat:'Beverages', name:'Rose Lemonade', desc:'Fresh rose syrup, muddled mint, sparkling water', price:600, icon:'fa-solid fa-wine-glass', tags:['NA'] },
+  { id:17, cat:'Beverages', name:'Mango Lassi', desc:'Fresh mango, yoghurt, cardamom', price:600, icon:'fa-solid fa-blender', tags:['Veg'] },
+  { id:18, cat:'Beverages', name:'Specialty Coffee', desc:'Single-origin espresso, steamed oat milk', price:500, icon:'fa-solid fa-mug-hot', tags:['Veg'] },
+];
+
+const SPECIALS = [
+  { name:'Saffron Risotto', desc:'Chef\'s signature', price:2400, old:3000, icon:'fa-solid fa-wheat-awn', badge:'20% OFF' },
+  { name:'Prime Ribeye', desc:'Dry-aged perfection', price:4500, old:5500, icon:'fa-solid fa-drumstick-bite', badge:'LIMITED' },
+  { name:'Baklava Cheesecake', desc:'Dessert of the week', price:1000, old:1300, icon:'fa-solid fa-cake-candles', badge:'SPECIAL' },
+];
+
+const DEALS = [
+  { title:'Welcome Feast', desc:'Get 20% off your entire bill on dine-in orders over Rs. 4,000. Valid Sunday–Thursday.', code:'SAFFRON20', badge:'DINE-IN', exp:'Expires 31 May 2025' },
+  { title:'Family Table', desc:'4+ guests? Enjoy a complimentary starter platter — just mention this offer when booking.', code:'FAMILY4', badge:'GROUP', exp:'Valid weekdays' },
+  { title:'Date Night', desc:'Book a table for 2 after 7 PM and receive complimentary dessert for both guests.', code:'DATENIGHT', badge:'EVENING', exp:'Fri & Sat only' },
+  { title:'Lunch Special', desc:'Two-course lunch for just Rs. 2,200 per person — starter + main. Available 12–3 PM.', code:'LUNCH22', badge:'LUNCH', exp:'Mon–Fri only' },
+];
+
+const FAQS = [
+  { q:'What are your opening hours?', a:'We are open daily from 12:00 PM to 11:00 PM. Last orders are taken at 10:30 PM. On Sundays, we open at 11:00 AM for brunch service.' },
+  { q:'Where are you located?', a:'Saffron Grove is located at 12 MM Alam Road, Gulberg III, Lahore. We\'re a 5-minute walk from Hafeez Centre.' },
+  { q:'What payment methods do you accept?', a:'We accept all major credit and debit cards (Visa, Mastercard), JazzCash, EasyPaisa, and cash. We do not charge a service fee.' },
+  { q:'Can I cancel or modify my reservation?', a:'Yes — cancellations and modifications are accepted up to 4 hours before your reservation time with no charge. After that, a Rs. 500 per person late cancellation fee may apply.' },
+  { q:'Do you offer delivery or takeaway?', a:'Yes! We offer takeaway directly from the restaurant. Delivery is available via Foodpanda and Careem Food within a 5km radius.' },
+  { q:'Do you cater for dietary requirements?', a:'Absolutely. We have extensive vegetarian, vegan, and gluten-free options. Please inform us of any allergies at the time of booking — our chef can accommodate most requirements.' },
+  { q:'Is there parking available?', a:'Valet parking is available at our restaurant. Street parking is also available on MM Alam Road. We recommend using ride-hailing services like Careem or Uber.' },
+  { q:'Can I host a private event or buyout?', a:'Yes — we offer full private dining and venue buyout packages for events of all sizes. Please email events@saffrongrove.pk for enquiries.' },
+];
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+let cart = {};
+let activeFilter = 'All';
+let currentScreen = 'home';
+
+// ═══════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════
+function goTo(page) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('screen-' + page).classList.add('active');
+  const nb = document.getElementById('nav-' + page);
+  if (nb) nb.classList.add('active');
+  currentScreen = page;
+  window.scrollTo(0,0);
+}
+function goHome() { goTo('home'); }
+
+// ═══════════════════════════════════════════════════════
+//  CART
+// ═══════════════════════════════════════════════════════
+function openCart() {
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  renderCart();
+}
+function closeCart() {
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  updateCartUI();
+  renderMenu();
+  showToast('Added to order!');
+}
+function removeFromCart(id) {
+  if (cart[id] > 1) cart[id]--;
+  else delete cart[id];
+  updateCartUI();
+  renderMenu();
+  renderCart();
+}
+function getCartCount() { return Object.values(cart).reduce((a,b)=>a+b,0); }
+function getCartTotal() {
+  return Object.entries(cart).reduce((s,[id,qty])=>{
+    const item = MENU.find(m=>m.id==id);
+    return s + (item ? item.price * qty : 0);
+  }, 0);
+}
+function updateCartUI() {
+  const cnt = getCartCount();
+  const tot = getCartTotal();
+  ['cart-badge','cart-badge2'].forEach(id=>{
+    const el = document.getElementById(id);
+    if (el) { el.textContent = cnt; el.style.display = cnt ? 'flex' : 'none'; }
+  });
+  const fc = document.getElementById('floating-cart');
+  const fl = document.getElementById('float-cart-label');
+  if (cnt > 0) {
+    fc.classList.add('visible');
+    fl.textContent = `View Cart · Rs. ${tot.toLocaleString()}`;
+  } else {
+    fc.classList.remove('visible');
+  }
+}
+function renderCart() {
+  const list = document.getElementById('cart-list');
+  const summary = document.getElementById('cart-summary');
+  const placeBtn = document.getElementById('place-order-btn');
+  const items = Object.entries(cart);
+  if (!items.length) {
+    list.innerHTML = `<div class="cart-empty"><i class="fa-solid fa-bag-shopping" style="font-size:40px;display:block;margin-bottom:12px"></i><p>Your cart is empty.<br>Add something delicious!</p></div>`;
+    summary.innerHTML = '';
+    placeBtn.style.display = 'none';
+    return;
+  }
+  list.innerHTML = items.map(([id,qty])=>{
+    const item = MENU.find(m=>m.id==id);
+    if (!item) return '';
+    return `<div class="cart-row">
+      <div class="cart-row-icon"><i class="${item.icon}"></i></div>
+      <div class="cart-row-info"><h5>${item.name}</h5><p>Rs. ${(item.price*qty).toLocaleString()}</p></div>
+      <div class="cart-row-qty">
+        <button onclick="removeFromCart(${id})">−</button>
+        <span>${qty}</span>
+        <button onclick="addToCart(${id})">+</button>
+      </div>
+    </div>`;
+  }).join('');
+  const sub = getCartTotal();
+  const tax = Math.round(sub * 0.05);
+  const total = sub + tax;
+  summary.innerHTML = `<div class="cart-summary-row"><span>Subtotal</span><span>Rs. ${sub.toLocaleString()}</span></div>
+    <div class="cart-summary-row"><span>GST (5%)</span><span>Rs. ${tax.toLocaleString()}</span></div>
+    <div class="cart-summary-row total"><span>Total</span><span>Rs. ${total.toLocaleString()}</span></div>`;
+  placeBtn.style.display = 'flex';
+}
+
+// ═══════════════════════════════════════════════════════
+//  MENU
+// ═══════════════════════════════════════════════════════
+function renderFilterBar() {
+  const cats = ['All', ...new Set(MENU.map(m=>m.cat))];
+  const bar = document.getElementById('filter-bar');
+  bar.innerHTML = cats.map(c=>`<button class="filter-pill${c===activeFilter?' active':''}" onclick="setFilter('${c}')">${c}</button>`).join('');
+}
+function setFilter(cat) {
+  activeFilter = cat;
+  renderFilterBar();
+  renderMenu();
+}
+function renderMenu() {
+  const filtered = activeFilter === 'All' ? MENU : MENU.filter(m=>m.cat===activeFilter);
+  const grid = document.getElementById('menu-grid');
+  grid.innerHTML = filtered.map(item => {
+    const qty = cart[item.id] || 0;
+    return `<div class="menu-item">
+      <div class="menu-icon"><i class="${item.icon}"></i></div>
+      <div class="menu-info">
+        <h4>${item.name}</h4>
+        <p>${item.desc}</p>
+        <div class="tags">${item.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+        <div class="menu-bottom">
+          <span class="menu-price">Rs. ${item.price.toLocaleString()}</span>
+          ${qty === 0
+            ? `<button class="add-btn" onclick="addToCart(${item.id})">+</button>`
+            : `<div class="menu-qty">
+                <button onclick="removeFromCart(${item.id})">−</button>
+                <span>${qty}</span>
+                <button onclick="addToCart(${item.id})">+</button>
+               </div>`
+          }
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+//  SPECIALS
+// ═══════════════════════════════════════════════════════
+function renderSpecials() {
+  document.getElementById('specials-scroll').innerHTML = SPECIALS.map(s=>`
+    <div class="special-card" onclick="goTo('menu')">
+      <div class="special-img"><i class="${s.icon}" style="font-size:42px;color:var(--gold)"></i></div>
+      <div class="special-info">
+        <h4>${s.name}</h4>
+        <p>${s.desc}</p>
+        <div class="special-price">
+          <span class="price">Rs. ${s.price.toLocaleString()}</span>
+          <span class="old">Rs. ${s.old.toLocaleString()}</span>
+          <span class="special-badge">${s.badge}</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+//  BOOKING
+// ═══════════════════════════════════════════════════════
+(function initBookingDate() {
+  const today = new Date();
+  today.setDate(today.getDate()+1);
+  document.getElementById('b-date').value = today.toISOString().split('T')[0];
+})();
+
+function submitBooking() {
+  const name = document.getElementById('b-name').value.trim();
+  const phone = document.getElementById('b-phone').value.trim();
+  const date = document.getElementById('b-date').value;
+  const guests = document.getElementById('b-guests').value;
+  const time = document.getElementById('b-time').value;
+  if (!name) { showToast('Please enter your name'); return; }
+  if (!phone) { showToast('Please enter your phone number'); return; }
+  if (!date) { showToast('Please select a date'); return; }
+  if (!guests) { showToast('Please select number of guests'); return; }
+  if (!time) { showToast('Please select a time slot'); return; }
+  const ref = 'SG-' + Math.random().toString(36).toUpperCase().substr(2,8);
+  document.getElementById('confirm-icon').innerHTML = '<i class="fa-solid fa-party-horn"></i>';
+  document.getElementById('confirm-title').textContent = 'Booking Confirmed!';
+  document.getElementById('confirm-subtitle').textContent = 'Your table is reserved. We look forward to welcoming you!';
+  document.getElementById('confirm-ref').textContent = ref;
+  document.getElementById('confirm-ref-sub').textContent = 'Present this at the host stand';
+  document.getElementById('confirm-details').innerHTML = `
+    <div class="confirm-row"><span class="k">Guest Name</span><span class="v">${name}</span></div>
+    <div class="confirm-row"><span class="k">Date</span><span class="v">${formatDate(date)}</span></div>
+    <div class="confirm-row"><span class="k">Time</span><span class="v">${time}</span></div>
+    <div class="confirm-row"><span class="k">Guests</span><span class="v">${guests} ${guests==='1'?'person':'guests'}</span></div>
+    <div class="confirm-row"><span class="k">Phone</span><span class="v">${phone}</span></div>`;
+  goTo('confirm');
+}
+function formatDate(d) { const [y,m,day]=d.split('-'); const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return `${day} ${months[m-1]} ${y}`; }
+
+// ═══════════════════════════════════════════════════════
+//  DEALS
+// ═══════════════════════════════════════════════════════
+function renderDeals() {
+  document.getElementById('deals-list').innerHTML = DEALS.map((d,i)=>`
+    <div class="deal-card">
+      <div class="deal-top"><span class="deal-badge">${d.badge}</span><span class="deal-exp">${d.exp}</span></div>
+      <div class="deal-title">${d.title}</div>
+      <p class="deal-desc">${d.desc}</p>
+      <div class="deal-code-row">
+        <div class="deal-code">${d.code}</div>
+        <button class="copy-btn" id="copy-btn-${i}" onclick="copyCode('${d.code}', ${i})">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+      </div>
+    </div>`).join('');
+}
+function copyCode(code, idx) {
+  navigator.clipboard.writeText(code).catch(()=>{});
+  const btn = document.getElementById('copy-btn-'+idx);
+  btn.classList.add('copied');
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+  showToast(`Code "${code}" copied!`);
+  setTimeout(()=>{ btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy'; }, 2500);
+}
+
+// ═══════════════════════════════════════════════════════
+//  FAQ
+// ═══════════════════════════════════════════════════════
+function renderFAQ() {
+  document.getElementById('faq-list').innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <div class="faq-q" onclick="toggleFAQ(${i})">
+        <span>${f.q}</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">${f.a}</div>
+    </div>`).join('');
+}
+function toggleFAQ(i) {
+  const el = document.getElementById('faq-'+i);
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+// ═══════════════════════════════════════════════════════
+//  LEAD CAPTURE
+// ═══════════════════════════════════════════════════════
+function submitLead() {
+  const name = document.getElementById('l-name').value.trim();
+  const email = document.getElementById('l-email').value.trim();
+  const phone = document.getElementById('l-phone').value.trim();
+  const interest = document.getElementById('l-interest').value;
+  if (!name) { showToast('Please enter your name'); return; }
+  if (!email || !email.includes('@')) { showToast('Please enter a valid email'); return; }
+  if (!phone) { showToast('Please enter your phone/WhatsApp'); return; }
+  if (!interest) { showToast('Please select your dining interest'); return; }
+  const code = 'WELCOME' + Math.floor(Math.random()*9000+1000);
+  document.getElementById('confirm-icon').innerHTML = '<i class="fa-solid fa-gift"></i>';
+  document.getElementById('confirm-title').textContent = 'Here\'s Your Gift!';
+  document.getElementById('confirm-subtitle').textContent = `Welcome to Saffron Grove, ${name.split(' ')[0]}! Your exclusive discount is ready.`;
+  document.getElementById('confirm-ref').textContent = code;
+  document.getElementById('confirm-ref-sub').textContent = 'Use at checkout for 25% off';
+  document.getElementById('confirm-details').innerHTML = `
+    <div class="confirm-row"><span class="k">Name</span><span class="v">${name}</span></div>
+    <div class="confirm-row"><span class="k">Email</span><span class="v">${email}</span></div>
+    <div class="confirm-row"><span class="k">Dining For</span><span class="v">${interest}</span></div>
+    <div class="confirm-row"><span class="k">Discount</span><span class="v" style="color:var(--gold)">25% Off Any Order</span></div>`;
+  goTo('confirm');
+}
+
+// ═══════════════════════════════════════════════════════
+//  ORDER
+// ═══════════════════════════════════════════════════════
+function placeOrder() {
+  if (!Object.keys(cart).length) return;
+  const ref = 'ORD-' + Math.random().toString(36).toUpperCase().substr(2,9);
+  const items = Object.entries(cart).map(([id,qty])=>{
+    const item = MENU.find(m=>m.id==id);
+    return `${item.name} ×${qty}`;
+  }).join(', ');
+  const sub = getCartTotal();
+  const tax = Math.round(sub * 0.05);
+  const total = sub + tax;
+  closeCart();
+  document.getElementById('confirm-icon').innerHTML = '<i class="fa-solid fa-check"></i>';
+  document.getElementById('confirm-title').textContent = 'Order Placed!';
+  document.getElementById('confirm-subtitle').textContent = 'Your order is confirmed and will be ready in 25–35 minutes.';
+  document.getElementById('confirm-ref').textContent = ref;
+  document.getElementById('confirm-ref-sub').textContent = 'Track your order with this reference';
+  document.getElementById('confirm-details').innerHTML = `
+    <div class="confirm-row"><span class="k">Items</span><span class="v" style="font-size:12px;text-align:right;max-width:200px">${items}</span></div>
+    <div class="confirm-row"><span class="k">Total (incl. GST)</span><span class="v" style="color:var(--gold)">Rs. ${total.toLocaleString()}</span></div>
+    <div class="confirm-row"><span class="k">Est. Time</span><span class="v">25–35 mins</span></div>`;
+  cart = {};
+  updateCartUI();
+  goTo('confirm');
+}
+
+// ═══════════════════════════════════════════════════════
+//  TOAST
+// ═══════════════════════════════════════════════════════
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+renderSpecials();
+renderFilterBar();
+renderMenu();
+renderDeals();
+renderFAQ();
+</script>
+</body>
+</html>
