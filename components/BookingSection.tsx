@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Restaurant } from '@/types';
 import { generateRef } from '@/lib/utils';
-import { Calendar, Clock, Users, Phone, MapPin } from 'lucide-react';
+import { Calendar, Clock, Phone, MapPin } from 'lucide-react';
 
 interface BookingSectionProps {
   restaurant: Restaurant;
