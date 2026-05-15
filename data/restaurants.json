@@ -1,0 +1,292 @@
+{
+  "restaurants": [
+    {
+      "id": "1",
+      "slug": "golden-gate-grill",
+      "name": "Golden Gate Grill",
+      "tagline": "Pacific Coast Flavors, Ocean Fresh",
+      "primaryColor": "#6B1A2A",
+      "accentColor": "#C9A84C",
+      "cuisine": "Seafood & Grill",
+      "location": "San Francisco, USA",
+      "phone": "+1 415 555 0191",
+      "rating": 4.7,
+      "openingHours": "11:30 AM - 11:00 PM",
+      "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=600&fit=crop",
+      "menu": [
+        {
+          "category": "Starters",
+          "items": [
+            {
+              "id": "s1",
+              "name": "Clam Chowder",
+              "price": 14,
+              "description": "San Francisco style clam chowder served in a sourdough bowl",
+              "image": "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=400&h=300&fit=crop"
+            },
+            {
+              "id": "s2",
+              "name": "Calamari Fritti",
+              "price": 16,
+              "description": "Crispy fried calamari with lemon aioli and marinara sauce",
+              "image": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Mains",
+          "items": [
+            {
+              "id": "m1",
+              "name": "Grilled Pacific Salmon",
+              "price": 32,
+              "description": "Fresh wild salmon with citrus glaze and seasonal vegetables",
+              "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop"
+            },
+            {
+              "id": "m2",
+              "name": "Prime Ribeye Steak",
+              "price": 48,
+              "description": "USDA prime ribeye with garlic butter and rosemary potatoes",
+              "image": "https://images.unsplash.com/photo-1546833998-877b37c2eada?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Desserts",
+          "items": [
+            {
+              "id": "d1",
+              "name": "Sourdough Bread Pudding",
+              "price": 10,
+              "description": "Warm bread pudding with vanilla bean ice cream",
+              "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Beverages",
+          "items": [
+            {
+              "id": "b1",
+              "name": "Artisanal Cocktails",
+              "price": 14,
+              "description": "Seasonal craft cocktails made with fresh ingredients",
+              "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=300&fit=crop"
+            }
+          ]
+        }
+      ],
+      "specials": [
+        { "name": "Grilled Pacific Salmon", "price": 28, "badge": "Chef's Pick" },
+        { "name": "Oyster Sampler", "price": 24, "badge": "Today's Special" },
+        { "name": "Wine Flight", "price": 18, "badge": "Happy Hour" }
+      ],
+      "deals": [
+        { "code": "COAST20", "discount": "20% Off", "description": "On total bill above $50" },
+        { "code": "HAPPYHOUR", "discount": "50% Off", "description": "On select drinks 4-7 PM" },
+        { "code": "FAMILY30", "discount": "$30 Off", "description": "On family meals above $100" }
+      ],
+      "faqs": [
+        { "question": "What are your opening hours?", "answer": "We are open 11:30 AM - 11:00 PM, 7 days a week." },
+        { "question": "Do you accept reservations?", "answer": "Yes, we accept table reservations for parties of 2-8 guests. Walk-ins are also welcome." },
+        { "question": "Is there parking available?", "answer": "Yes, we have valet parking and a nearby public parking garage." },
+        { "question": "Do you offer vegetarian options?", "answer": "Absolutely! Our menu features several vegetarian and vegan options." },
+        { "question": "Can I host a private event?", "answer": "Yes, we have a private dining room that seats up to 30 guests. Contact us for details." },
+        { "question": "Do you offer takeout and delivery?", "answer": "Yes, takeout is available. Delivery via UberEats and DoorDash." }
+      ]
+    },
+    {
+      "id": "2",
+      "slug": "spice-route-dubai",
+      "name": "Spice Route Dubai",
+      "tagline": "A Journey Through Arabian Flavors",
+      "primaryColor": "#0D2137",
+      "accentColor": "#D4AF37",
+      "cuisine": "Middle Eastern & Indian",
+      "location": "Dubai, UAE",
+      "phone": "+971 4 555 0191",
+      "rating": 4.9,
+      "openingHours": "12:00 PM - 12:00 AM",
+      "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=600&fit=crop",
+      "menu": [
+        {
+          "category": "Mezze",
+          "items": [
+            {
+              "id": "mz1",
+              "name": "Hummus with Lamb",
+              "price": 18,
+              "description": "Creamy hummus topped with spiced minced lamb and pine nuts",
+              "image": "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=400&h=300&fit=crop"
+            },
+            {
+              "id": "mz2",
+              "name": "Fatoush Salad",
+              "price": 14,
+              "description": "Fresh vegetables with crispy pita and sumac dressing",
+              "image": "https://images.unsplash.com/photo-1566382341940-82acb2c7f6ca?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Main Courses",
+          "items": [
+            {
+              "id": "mc1",
+              "name": "Lamb Ouzi",
+              "price": 42,
+              "description": "Slow-cooked lamb with spiced rice, nuts, and raisins",
+              "image": "https://images.unsplash.com/photo-1545247181-516773cae754?w=400&h=300&fit=crop"
+            },
+            {
+              "id": "mc2",
+              "name": "Butter Chicken",
+              "price": 28,
+              "description": "Creamy tomato curry with tender chicken pieces",
+              "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c34db?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Desserts",
+          "items": [
+            {
+              "id": "ds1",
+              "name": "Baklava Assortment",
+              "price": 12,
+              "description": "Selection of pistachio and walnut baklava with honey",
+              "image": "https://images.unsplash.com/photo-1518980822466-52e61c4aff6e?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Beverages",
+          "items": [
+            {
+              "id": "bv1",
+              "name": "Arabic Coffee",
+              "price": 8,
+              "description": "Traditional spiced coffee with dates",
+              "image": "https://images.unsplash.com/photo-1589733948700-32bac7b0b7cb?w=400&h=300&fit=crop"
+            }
+          ]
+        }
+      ],
+      "specials": [
+        { "name": "Lamb Ouzi", "price": 38, "badge": "Signature Dish" },
+        { "name": "Mixed Grill Platter", "price": 45, "badge": "Chef's Special" },
+        { "name": "Saffron Tea", "price": 6, "badge": "Traditional" }
+      ],
+      "deals": [
+        { "code": "ROUTE20", "discount": "20% Off", "description": "On first visit" },
+        { "code": "SPICENIGHT", "discount": "Buy 1 Get 1", "description": "On selected main courses" },
+        { "code": "MIDEAST15", "discount": "15% Off", "description": "On orders above AED 200" }
+      ],
+      "faqs": [
+        { "question": "What are your opening hours?", "answer": "We are open 12:00 PM - 12:00 AM, 7 days a week." },
+        { "question": "Do you have halal certification?", "answer": "Yes, all our meat is halal certified." },
+        { "question": "Is there a dress code?", "answer": "Smart casual is recommended. No beachwear please." },
+        { "question": "Do you offer shisha?", "answer": "Yes, shisha is available on our outdoor terrace." },
+        { "question": "Can I host a business meeting?", "answer": "Yes, we have private meeting rooms available for booking." },
+        { "question": "Do you offer valet parking?", "answer": "Yes, complimentary valet parking is available." }
+      ]
+    },
+    {
+      "id": "3",
+      "slug": "harbor-bites-london",
+      "name": "Harbor Bites London",
+      "tagline": "Modern British Cuisine with a View",
+      "primaryColor": "#1B4D3E",
+      "accentColor": "#E8B40E",
+      "cuisine": "Modern British",
+      "location": "London, UK",
+      "phone": "+44 20 7555 0191",
+      "rating": 4.8,
+      "openingHours": "10:00 AM - 10:30 PM",
+      "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=600&fit=crop",
+      "menu": [
+        {
+          "category": "Starters",
+          "items": [
+            {
+              "id": "st1",
+              "name": "Fish & Chips Bites",
+              "price": 12,
+              "description": "Mini beer-battered cod with mushy peas and tartar sauce",
+              "image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=300&fit=crop"
+            },
+            {
+              "id": "st2",
+              "name": "Scotch Eggs",
+              "price": 10,
+              "description": "Soft boiled egg wrapped in sausage meat with runny yolk",
+              "image": "https://images.unsplash.com/photo-1606491956689-2ea866080c1f?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Mains",
+          "items": [
+            {
+              "id": "mn1",
+              "name": "Sunday Roast",
+              "price": 24,
+              "description": "Slow-roasted beef with Yorkshire pudding and all the trimmings",
+              "image": "https://images.unsplash.com/photo-1600661653561-629509216228?w=400&h=300&fit=crop"
+            },
+            {
+              "id": "mn2",
+              "name": "Fish Pie",
+              "price": 19,
+              "description": "Creamy salmon, cod, and haddock topped with mashed potatoes",
+              "image": "https://images.unsplash.com/photo-1556760544-74068565f05c?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Desserts",
+          "items": [
+            {
+              "id": "de1",
+              "name": "Sticky Toffee Pudding",
+              "price": 8,
+              "description": "Warm date pudding with butterscotch sauce and vanilla ice cream",
+              "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=400&h=300&fit=crop"
+            }
+          ]
+        },
+        {
+          "category": "Beverages",
+          "items": [
+            {
+              "id": "be1",
+              "name": "English Afternoon Tea",
+              "price": 16,
+              "description": "Selection of teas with finger sandwiches and scones",
+              "image": "https://images.unsplash.com/photo-1560842372-4748d19cb745?w=400&h=300&fit=crop"
+            }
+          ]
+        }
+      ],
+      "specials": [
+        { "name": "Sunday Roast", "price": 20, "badge": "Weekend Special" },
+        { "name": "Afternoon Tea for Two", "price": 28, "badge": "Best Value" },
+        { "name": "Fish & Chips", "price": 14, "badge": "Classic" }
+      ],
+      "deals": [
+        { "code": "HARBOR10", "discount": "10% Off", "description": "On lunch orders" },
+        { "code": "TEATIME", "discount": "Free Scone", "description": "With any tea order" },
+        { "code": "ROAST25", "discount": "25% Off", "description": "On Sunday roasts" }
+      ],
+      "faqs": [
+        { "question": "What are your opening hours?", "answer": "We are open 10:00 AM - 10:30 PM, 7 days a week." },
+        { "question": "Is there a view of the harbor?", "answer": "Yes, our terrace offers beautiful harbor views." },
+        { "question": "Do you accommodate dietary restrictions?", "answer": "Yes, we offer gluten-free, dairy-free, and vegetarian options." },
+        { "question": "Is there outdoor seating?", "answer": "Yes, we have a heated outdoor terrace." },
+        { "question": "Do you take large group bookings?", "answer": "Yes, we can accommodate groups up to 40 people." },
+        { "question": "Are dogs allowed?", "answer": "Well-behaved dogs are welcome on our terrace." }
+      ]
+    }
+  ]
+}
