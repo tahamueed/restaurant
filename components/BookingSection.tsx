@@ -92,7 +92,6 @@ export default function BookingSection({ restaurant }: BookingSectionProps) {
                   type="text"
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                  style={{ focusRingColor: 'var(--primary)' }}
                   value={bookingData.name}
                   onChange={(e) => setBookingData({ ...bookingData, name: e.target.value })}
                 />
@@ -103,7 +102,6 @@ export default function BookingSection({ restaurant }: BookingSectionProps) {
                   type="email"
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                  style={{ focusRingColor: 'var(--primary)' }}
                   value={bookingData.email}
                   onChange={(e) => setBookingData({ ...bookingData, email: e.target.value })}
                 />
@@ -114,7 +112,6 @@ export default function BookingSection({ restaurant }: BookingSectionProps) {
                   type="tel"
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                  style={{ focusRingColor: 'var(--primary)' }}
                   value={bookingData.phone}
                   onChange={(e) => setBookingData({ ...bookingData, phone: e.target.value })}
                 />

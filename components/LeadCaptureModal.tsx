@@ -67,7 +67,6 @@ export default function LeadCaptureModal({
                   type="text"
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                  style={{ focusRingColor: 'var(--primary)' }}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -78,7 +77,6 @@ export default function LeadCaptureModal({
                   type="email"
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                  style={{ focusRingColor: 'var(--primary)' }}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -88,7 +86,6 @@ export default function LeadCaptureModal({
                 <input
                   type="tel"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2"
-                  style={{ focusRingColor: 'var(--primary)' }}
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
