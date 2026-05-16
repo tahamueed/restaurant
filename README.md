@@ -26,11 +26,11 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
-**Home Page:** [http://localhost:3000](http://localhost:3000)
+**Home Page:** [http://localhost:3000](https://restaurant-nine-self.vercel.app/)
 **Demo Pages:**
-- [http://localhost:3000/demo/golden-gate-grill](http://localhost:3000/demo/golden-gate-grill)
-- [http://localhost:3000/demo/spice-route-dubai](http://localhost:3000/demo/spice-route-dubai)
-- [http://localhost:3000/demo/harbor-bites-london](http://localhost:3000/demo/harbor-bites-london)
+- [http://localhost:3000/demo/golden-gate-grill](https://restaurant-nine-self.vercel.app/demo/golden-gate-grill)
+- [http://localhost:3000/demo/spice-route-dubai](https://restaurant-nine-self.vercel.app/demo/spice-route-dubai)
+- [http://localhost:3000/demo/harbor-bites-london](https://restaurant-nine-self.vercel.app/demo/harbor-bites-london)
 
 ### 3. Build for Production
 
